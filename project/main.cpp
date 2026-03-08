@@ -5,6 +5,8 @@
 #include <vector>
 #include <cmath>
 #include <iomanip>
+#include "parser.h"
+
 std::vector<int> calcTime(const int fd){
 	int ls = lseek(fd, 0, SEEK_SET);	
 	if(ls == -1){
@@ -12,58 +14,26 @@ std::vector<int> calcTime(const int fd){
 		exit(1);
 	}
 	
-
 	int size = 128;
 	char buff[size];
 	
-
 	int rd = read(fd, buff, size);
 	if(rd == -1){
 		std::cerr<<"Failed to read"<<std::endl;
 		exit(1);
 	}
-
-	char* newLine = (char*)std::memchr(buff, '\n', size);
-	int len = newLine ? newLine - buff : size; 
-	buff[len] = '\n';
-	buff[len + 1] = '\0';
+	
+	parser cpu;
+	char* ptr = cpu.findNthChr(buff + 5, ' ', size, 5);
+	
+	std::vector<int> res(2, 0);
+	
+	for(int i = 0; i < 5; ++i){
+		if(i == 0 || i == 1) res[1]+= cpu.castToInt(ptr, size, ' ');
+		else res[0] += cpu.castToInt(ptr, size,  ' ');
+	}
 		
-//	for(int i = 0; buff[i] != '\n'; ++ i){
-//		std::cout<<buff[i];
-//	}
-//	std::cout<<std::endl;
-
-	std::vector<int> res(2);
-	long long pow = 1;
-	int count = 1;
-	int index = 1;
-
 	
-
-	int i = len - 1;
-	for(; count < 6; --i){
-		if(buff[i] == ' ' ) count++;
-	}
-	
-
-	for(; count < 11; --i){
-		if(buff[i] != ' '){
-			res[index] += pow * (buff[i] - '0'); 	
-			pow*=10;
-		}
-
-		else {
-			pow = 1;
-			count++;
-
-			if(count == 8) index = 0;
-		}
-
-
-	}
-
-
-//	std::cout<<res[0]<<" "<<res[1]<<std::endl;
 	return res;
 }
 
@@ -89,18 +59,10 @@ int main(){
 	}
 	
 	std::cout << std::fixed << std::setprecision(2);
+	std::cout << '\n';
 	while(true){	
-		std::cout<<calcUsage(fd)<<"%"<<std::endl;
+		std::cout<<"\r"<<calcUsage(fd)<<"%  "<<std::flush;
 	}
-
-	//char* buff = {calcUsage(int fd)};
-	//int wt = write(1, buff, 1);
-	//if(wt == -1){
-	//	std::cerr<<"Failed to write"<<std::endl;
-	//	exit(1);
-	//}
-
-
 
 	close(fd);
 
