@@ -69,19 +69,19 @@ include CMakeFiles/cpu.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/cpu.dir/flags.make
 
-CMakeFiles/cpu.dir/main.cpp.o: CMakeFiles/cpu.dir/flags.make
-CMakeFiles/cpu.dir/main.cpp.o: /home/Ars/Desktop/Monitoring_Computer_Hardware/project/main.cpp
-CMakeFiles/cpu.dir/main.cpp.o: CMakeFiles/cpu.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Ars/Desktop/Monitoring_Computer_Hardware/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cpu.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cpu.dir/main.cpp.o -MF CMakeFiles/cpu.dir/main.cpp.o.d -o CMakeFiles/cpu.dir/main.cpp.o -c /home/Ars/Desktop/Monitoring_Computer_Hardware/project/main.cpp
+CMakeFiles/cpu.dir/cpu.cpp.o: CMakeFiles/cpu.dir/flags.make
+CMakeFiles/cpu.dir/cpu.cpp.o: /home/Ars/Desktop/Monitoring_Computer_Hardware/project/cpu.cpp
+CMakeFiles/cpu.dir/cpu.cpp.o: CMakeFiles/cpu.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Ars/Desktop/Monitoring_Computer_Hardware/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cpu.dir/cpu.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cpu.dir/cpu.cpp.o -MF CMakeFiles/cpu.dir/cpu.cpp.o.d -o CMakeFiles/cpu.dir/cpu.cpp.o -c /home/Ars/Desktop/Monitoring_Computer_Hardware/project/cpu.cpp
 
-CMakeFiles/cpu.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cpu.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Ars/Desktop/Monitoring_Computer_Hardware/project/main.cpp > CMakeFiles/cpu.dir/main.cpp.i
+CMakeFiles/cpu.dir/cpu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cpu.dir/cpu.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Ars/Desktop/Monitoring_Computer_Hardware/project/cpu.cpp > CMakeFiles/cpu.dir/cpu.cpp.i
 
-CMakeFiles/cpu.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cpu.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Ars/Desktop/Monitoring_Computer_Hardware/project/main.cpp -o CMakeFiles/cpu.dir/main.cpp.s
+CMakeFiles/cpu.dir/cpu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cpu.dir/cpu.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Ars/Desktop/Monitoring_Computer_Hardware/project/cpu.cpp -o CMakeFiles/cpu.dir/cpu.cpp.s
 
 CMakeFiles/cpu.dir/parser.cpp.o: CMakeFiles/cpu.dir/flags.make
 CMakeFiles/cpu.dir/parser.cpp.o: /home/Ars/Desktop/Monitoring_Computer_Hardware/project/parser.cpp
@@ -99,13 +99,13 @@ CMakeFiles/cpu.dir/parser.cpp.s: cmake_force
 
 # Object files for target cpu
 cpu_OBJECTS = \
-"CMakeFiles/cpu.dir/main.cpp.o" \
+"CMakeFiles/cpu.dir/cpu.cpp.o" \
 "CMakeFiles/cpu.dir/parser.cpp.o"
 
 # External object files for target cpu
 cpu_EXTERNAL_OBJECTS =
 
-cpu: CMakeFiles/cpu.dir/main.cpp.o
+cpu: CMakeFiles/cpu.dir/cpu.cpp.o
 cpu: CMakeFiles/cpu.dir/parser.cpp.o
 cpu: CMakeFiles/cpu.dir/build.make
 cpu: CMakeFiles/cpu.dir/link.txt

@@ -2,12 +2,13 @@
 #include <vector>
 #include <fcntl.h>
 #include <unistd.h>
-#include <cstring>
+#include "parser.h"
 
+namespace ram{
 
 std::vector<int> getMemInfo(const int fd){
 	int size = 128;
-	char buff[size];
+	char buff[128];
 
 	int rd = read(fd, buff, size);
 	if(rd == -1){
@@ -15,38 +16,26 @@ std::vector<int> getMemInfo(const int fd){
 		exit(1);
 	}
 	
-	lseek(fd, 0, SEEK_SET);
+	int ls = lseek(fd, 0, SEEK_SET);
+	if(ls == -1){
+		std::cerr<<"Failed to lseek"<<std::endl;
+	}	
 
-	char* pos = (char*)memchr(buff, 'k', size);
-	int pos1 = pos - buff - 2;
+	std::vector res(2, 0);
+	int index = parser::findNthChr(buff, 'k', size, 3);	
+
+	res[1] = parser::castToInt(buff, --index, ' ');
 	
-	pos = (char*)memchr(buff + pos1 + 3, 'k', size - pos1 - 3);
-	int pos2 = pos - buff - 2;
+	index = parser::findNthChr(buff, 'k', size, 1);
+	res[0] = parser::castToInt(buff, --index, ' ');	
 
-	pos = (char*)memchr(buff + pos2 +3, 'k', size - pos2 - 3);
-	int pos3 = pos - buff -2;
-
-	std::vector<int> res(2);
-	long long pw = 1;
-
-	for(int i = pos3; buff[i] != ' '; --i){
-		res[1] += pw * (buff[i] - '0');
-		pw*=10;
-	}
-
-	pw = 1;
-	for(int i = pos1; buff[i] != ' '; --i){
-		res[0] += pw * (buff[i] - '0');
-		pw*=10;
-	}
-	
 	return res;
 
 }
 
 
 
-int main(){
+display	(){
 	int fd = open("/proc/meminfo", O_RDONLY);
 	if(fd == -1){
 		std::cerr<<"Failed to open /proc/meminfo"<<std::endl;
@@ -64,4 +53,5 @@ int main(){
 	close(fd);
 
 	return 0;
+}
 }

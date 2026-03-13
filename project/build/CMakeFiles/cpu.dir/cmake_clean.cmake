@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/cpu.dir/main.cpp.o"
-  "CMakeFiles/cpu.dir/main.cpp.o.d"
+  "CMakeFiles/cpu.dir/cpu.cpp.o"
+  "CMakeFiles/cpu.dir/cpu.cpp.o.d"
   "CMakeFiles/cpu.dir/parser.cpp.o"
   "CMakeFiles/cpu.dir/parser.cpp.o.d"
   "cpu"

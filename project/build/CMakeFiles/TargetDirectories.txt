@@ -1,3 +1,4 @@
 /home/Ars/Desktop/Monitoring_Computer_Hardware/project/build/CMakeFiles/cpu.dir
+/home/Ars/Desktop/Monitoring_Computer_Hardware/project/build/CMakeFiles/ram.dir
 /home/Ars/Desktop/Monitoring_Computer_Hardware/project/build/CMakeFiles/edit_cache.dir
 /home/Ars/Desktop/Monitoring_Computer_Hardware/project/build/CMakeFiles/rebuild_cache.dir

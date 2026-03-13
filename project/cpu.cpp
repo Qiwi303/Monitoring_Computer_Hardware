@@ -7,6 +7,8 @@
 #include <iomanip>
 #include "parser.h"
 
+namespace cpu{
+
 std::vector<int> calcTime(const int fd){
 	int ls = lseek(fd, 0, SEEK_SET);	
 	if(ls == -1){
@@ -15,7 +17,7 @@ std::vector<int> calcTime(const int fd){
 	}
 	
 	int size = 128;
-	char buff[size];
+	char buff[128];
 	
 	int rd = read(fd, buff, size);
 	if(rd == -1){
@@ -23,14 +25,13 @@ std::vector<int> calcTime(const int fd){
 		exit(1);
 	}
 	
-	parser cpu;
-	char* ptr = cpu.findNthChr(buff + 5, ' ', size, 5);
-	
+	int index = parser::findNthChr(buff + 5, ' ', size - 5, 5);
 	std::vector<int> res(2, 0);
 	
+
 	for(int i = 0; i < 5; ++i){
-		if(i == 0 || i == 1) res[1]+= cpu.castToInt(ptr, size, ' ');
-		else res[0] += cpu.castToInt(ptr, size,  ' ');
+		if(i == 0 || i == 1) res[1]+= parser::castToInt(buff, index, ' ');
+		else res[0] += parser::castToInt(buff, index,  ' ');
 	}
 		
 	
@@ -51,7 +52,7 @@ float calcUsage(const int fd){
 
 
 
-int main(){	
+display{	
 	int fd = open("/proc/stat", O_RDONLY);
 	if(fd == -1){
 		std::cerr<<"Failed to open /proc/stat"<<std::endl;
@@ -67,4 +68,5 @@ int main(){
 	close(fd);
 
 	return 0;
+}
 }

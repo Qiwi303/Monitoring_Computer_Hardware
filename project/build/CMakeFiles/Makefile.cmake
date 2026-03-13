@@ -41,4 +41,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/cpu.dir/DependInfo.cmake"
+  "CMakeFiles/ram.dir/DependInfo.cmake"
   )

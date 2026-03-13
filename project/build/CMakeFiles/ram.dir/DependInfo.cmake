@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/Ars/Desktop/Monitoring_Computer_Hardware/project/cpu.cpp" "CMakeFiles/cpu.dir/cpu.cpp.o" "gcc" "CMakeFiles/cpu.dir/cpu.cpp.o.d"
-  "/home/Ars/Desktop/Monitoring_Computer_Hardware/project/parser.cpp" "CMakeFiles/cpu.dir/parser.cpp.o" "gcc" "CMakeFiles/cpu.dir/parser.cpp.o.d"
+  "/home/Ars/Desktop/Monitoring_Computer_Hardware/project/parser.cpp" "CMakeFiles/ram.dir/parser.cpp.o" "gcc" "CMakeFiles/ram.dir/parser.cpp.o.d"
+  "/home/Ars/Desktop/Monitoring_Computer_Hardware/project/ram.cpp" "CMakeFiles/ram.dir/ram.cpp.o" "gcc" "CMakeFiles/ram.dir/ram.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

@@ -129,29 +129,42 @@ cpu/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu.dir/build.make CMakeFiles/cpu.dir/build
 .PHONY : cpu/fast
 
-main.o: main.cpp.o
-.PHONY : main.o
+#=============================================================================
+# Target rules for targets named ram
+
+# Build rule for target.
+ram: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ram
+.PHONY : ram
+
+# fast build rule for target.
+ram/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ram.dir/build.make CMakeFiles/ram.dir/build
+.PHONY : ram/fast
+
+cpu.o: cpu.cpp.o
+.PHONY : cpu.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu.dir/build.make CMakeFiles/cpu.dir/main.cpp.o
-.PHONY : main.cpp.o
+cpu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu.dir/build.make CMakeFiles/cpu.dir/cpu.cpp.o
+.PHONY : cpu.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+cpu.i: cpu.cpp.i
+.PHONY : cpu.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu.dir/build.make CMakeFiles/cpu.dir/main.cpp.i
-.PHONY : main.cpp.i
+cpu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu.dir/build.make CMakeFiles/cpu.dir/cpu.cpp.i
+.PHONY : cpu.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+cpu.s: cpu.cpp.s
+.PHONY : cpu.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu.dir/build.make CMakeFiles/cpu.dir/main.cpp.s
-.PHONY : main.cpp.s
+cpu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu.dir/build.make CMakeFiles/cpu.dir/cpu.cpp.s
+.PHONY : cpu.cpp.s
 
 parser.o: parser.cpp.o
 .PHONY : parser.o
@@ -159,6 +172,7 @@ parser.o: parser.cpp.o
 # target to build an object file
 parser.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu.dir/build.make CMakeFiles/cpu.dir/parser.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ram.dir/build.make CMakeFiles/ram.dir/parser.cpp.o
 .PHONY : parser.cpp.o
 
 parser.i: parser.cpp.i
@@ -167,6 +181,7 @@ parser.i: parser.cpp.i
 # target to preprocess a source file
 parser.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu.dir/build.make CMakeFiles/cpu.dir/parser.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ram.dir/build.make CMakeFiles/ram.dir/parser.cpp.i
 .PHONY : parser.cpp.i
 
 parser.s: parser.cpp.s
@@ -175,7 +190,32 @@ parser.s: parser.cpp.s
 # target to generate assembly for a file
 parser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu.dir/build.make CMakeFiles/cpu.dir/parser.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ram.dir/build.make CMakeFiles/ram.dir/parser.cpp.s
 .PHONY : parser.cpp.s
+
+ram.o: ram.cpp.o
+.PHONY : ram.o
+
+# target to build an object file
+ram.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ram.dir/build.make CMakeFiles/ram.dir/ram.cpp.o
+.PHONY : ram.cpp.o
+
+ram.i: ram.cpp.i
+.PHONY : ram.i
+
+# target to preprocess a source file
+ram.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ram.dir/build.make CMakeFiles/ram.dir/ram.cpp.i
+.PHONY : ram.cpp.i
+
+ram.s: ram.cpp.s
+.PHONY : ram.s
+
+# target to generate assembly for a file
+ram.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ram.dir/build.make CMakeFiles/ram.dir/ram.cpp.s
+.PHONY : ram.cpp.s
 
 # Help Target
 help:
@@ -186,12 +226,16 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... cpu"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... ram"
+	@echo "... cpu.o"
+	@echo "... cpu.i"
+	@echo "... cpu.s"
 	@echo "... parser.o"
 	@echo "... parser.i"
 	@echo "... parser.s"
+	@echo "... ram.o"
+	@echo "... ram.i"
+	@echo "... ram.s"
 .PHONY : help
 
 
