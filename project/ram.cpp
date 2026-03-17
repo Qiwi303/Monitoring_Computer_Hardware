@@ -1,12 +1,26 @@
-#include <iostream>
-#include <vector>
-#include <fcntl.h>
-#include <unistd.h>
-#include "parser.h"
+#include "ram.h"
 
-namespace ram{
+Ram::Ram(){
+    fd = open("/proc/meminfo", O_RDONLY);
+    if(fd < 0){
+        throw std::runtime_error("Failed to open /proc/meminfo");
+    }
+} 
+  Ram::~Ram(){
+      if(fd < 0){
+          std::cerr<<"Invalid fd /proc/meminfo"<<std::endl;
+      }
+      else{
+          int closed = close(fd);
+          if(closed < 0){
+              std::cerr<<"Failed to close fd /proc/meminfo"<<std::endl;
+          }
+      }
+  
+ }
 
-std::vector<int> getMemInfo(const int fd){
+
+std::vector<int> Ram::getMemInfo(){
 	int size = 128;
 	char buff[128];
 
@@ -35,23 +49,3 @@ std::vector<int> getMemInfo(const int fd){
 
 
 
-display	(){
-	int fd = open("/proc/meminfo", O_RDONLY);
-	if(fd == -1){
-		std::cerr<<"Failed to open /proc/meminfo"<<std::endl;
-		exit(1);
-	}	
-	
-	std::vector<int> res;
-
-	while(true){
-		res = getMemInfo(fd);
-		std::cout<<"\r"<<(res[0])<<" "<<(res[1])<<std::flush;	
-		sleep(1);
-	}
-
-	close(fd);
-
-	return 0;
-}
-}

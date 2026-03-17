@@ -1,15 +1,26 @@
-#include <iostream>
-#include <unistd.h>
-#include <fcntl.h>
-#include <cstring>
-#include <vector>
-#include <cmath>
-#include <iomanip>
-#include "parser.h"
+#include "cpu.h"
 
-namespace cpu{
+Cpu::Cpu(){
+	fd = open("/proc/stat", O_RDONLY);
+	if(fd < 0){
+		throw std::runtime_error("Failed to open /proc/stat");
+	}
+}
 
-std::vector<int> calcTime(const int fd){
+Cpu::~Cpu(){
+	if(fd < 0){
+		std::cerr<<"Invalid fd /proc/stat"<<std::endl;
+	}
+	else{
+		int closed = close(fd);
+		if(closed < 0){
+			std::cerr<<"Failed to close fd /proc/stat"<<std::endl;
+		}
+	}
+
+}
+
+std::vector<int> Cpu::calcTime(){
 	int ls = lseek(fd, 0, SEEK_SET);	
 	if(ls == -1){
 		std::cerr<<"Failed to lseek to start"<<std::endl;
@@ -38,35 +49,18 @@ std::vector<int> calcTime(const int fd){
 	return res;
 }
 
-float calcUsage(const int fd){
-	std::vector<int> res1 = calcTime(fd);
+std::string Cpu::calcUsage(){
+	std::vector<int> res1 = calcTime();
 	sleep(1);
-	std::vector<int> res2 = calcTime(fd);
+	std::vector<int> res2 = calcTime();
 	
 	int total = res2[0] + res2[1] - res1[0] - res1[1];
 	int active = res2[0] - res1[0];
 	float usage = 100*(active*1.0/total);
-
-	return 	usage;
+	std::string res = std::to_string(usage);
+	res.resize(4);	
+	return 	res + "%";
 }
 
 
 
-display{	
-	int fd = open("/proc/stat", O_RDONLY);
-	if(fd == -1){
-		std::cerr<<"Failed to open /proc/stat"<<std::endl;
-		exit(1);
-	}
-	
-	std::cout << std::fixed << std::setprecision(2);
-	std::cout << '\n';
-	while(true){	
-		std::cout<<"\r"<<calcUsage(fd)<<"%  "<<std::flush;
-	}
-
-	close(fd);
-
-	return 0;
-}
-}

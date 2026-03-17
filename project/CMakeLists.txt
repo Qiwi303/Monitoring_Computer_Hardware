@@ -1,23 +1,28 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.14)
 
-project(test LANGUAGES CXX)
+project(ftxui-starter
+  LANGUAGES CXX
+  VERSION 1.0.0
+)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STDANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(cpu 
-	cpu.cpp
-	parser.cpp
+include(FetchContent)
+
+FetchContent_Declare(ftxui
+  GIT_REPOSITORY https://github.com/ArthurSonzogni/ftxui
+  GIT_TAG v5.0.0 
 )
 
-target_compile_options(cpu PRIVATE -Wall -Wextra -pedantic )
+FetchContent_MakeAvailable(ftxui)
 
+add_executable(ftxui-starter runMonitoring.cpp parser.cpp cpu.cpp ram.cpp)
 
+target_include_directories(ftxui-starter PRIVATE src)
 
-add_executable(ram 
-	ram.cpp
-	parser.cpp
+target_link_libraries(ftxui-starter
+  PRIVATE ftxui::screen
+  PRIVATE ftxui::dom
+  PRIVATE ftxui::component
 )
-
-target_compile_options(ram PRIVATE -Wall -Wextra -pedantic )

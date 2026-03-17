@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/cpu.dir/cpu.cpp.o CMakeFiles/cpu.dir/parser.cpp.o -o cpu 
