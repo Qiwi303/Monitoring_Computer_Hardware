@@ -2,8 +2,8 @@
 
 void DataCollector::cpuWorker(){
     Cpu cpu;
-    While(true){
-        data->cpu.usage = cpu.CalcUsage();
+    while(true){
+        data->cpu.usage = cpu.calcUsage();
     }
 }
 
@@ -20,12 +20,12 @@ void DataCollector::ramWorker(){
 
 
 void DataCollector::startThreads(){
-    threads.emplace_back(cpuWorker);
-    threads.emplace_back(ramWorker);
+    threads.emplace_back(&DataCollector::cpuWorker, this);
+    threads.emplace_back(&DataCollector::ramWorker, this);
 }
 
 DataCollector::DataCollector(){
-    fd = shm_open("/shared_data", O_RDWR, 0666);
+    fd = shm_open("/shared_data", O_CREAT | O_RDWR, 0666);
     if(fd < 0){
         throw std::runtime_error("Failed to shm_open shared_data");
     }
@@ -42,7 +42,7 @@ DataCollector::DataCollector(){
     
     data = static_cast<Monitoring*>(ptr);
     
-    startThreads();
+    DataCollector::startThreads();
 }
 
 DataCollector::~DataCollector(){    
@@ -51,7 +51,7 @@ DataCollector::~DataCollector(){
     }    
 
     if(ptr != MAP_FAILED){
-        munmap(ptr, capacity); 
+        munmap(ptr, size); 
     }    
     
     if(fd != -1){

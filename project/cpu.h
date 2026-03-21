@@ -15,7 +15,7 @@ public:
 	Cpu();		
 	~Cpu();
 	std::vector<int> calcTime();
-	std::string calcUsage();
+	float calcUsage();
 
 private:
 	int fd;

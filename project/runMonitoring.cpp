@@ -2,8 +2,10 @@
 #include <iostream>
 #include <sys/types.h>
 #include <cassert>
-#include "cpu.h"
-#include "ram.h"
+
+#include <sys/mman.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 //#daemon proccess creation
 //	pid_t childPid = fork();
@@ -26,15 +28,21 @@
 #include "ftxui/dom/elements.hpp"  
 #include "ftxui/screen/color.hpp"
 
+#include "Structures.h"
+
+#include <thread>
+#include <chrono>
+
 using namespace ftxui;
 
 int main(){
-	try{	
-        Cpu cpu;        
-        Ram ram;
-        
+    int fd = shm_open("/shared_data", O_RDONLY, 0444 );
+    void* ptr = mmap(nullptr, 20, PROT_READ, MAP_SHARED, fd, 0);	
+    Monitoring* data = static_cast<Monitoring*>(ptr);
+
+    try{        
         int k = 0;
-        std::string out;        
+        std::string out;
 
         auto buttons = Container::Horizontal({
             Button("main", [&] {k = 0;}),
@@ -45,8 +53,13 @@ int main(){
        
         auto component = Renderer(buttons, [&]{
             if(k == 0) out = "main";
-            else if(k == 1) out = cpu.calcUsage();
-            else out = std::to_string(ram.getMemInfo()[0]);
+            else if(k == 1){
+                out = std::to_string(data->cpu.usage);
+                out.resize(4);
+                out = out + "%";
+            }
+
+            else out = std::to_string(data->ram.total);
 
             return vbox({
                    buttons->Render(),
@@ -55,8 +68,16 @@ int main(){
                    });
             
         });    
-        
+         
         auto screen = ScreenInteractive::FitComponent();
+ 
+        std::thread refresh_thread([&screen]() {
+            while (true) {
+                std::this_thread::sleep_for(std::chrono::milliseconds(500));
+                screen.PostEvent(Event::Custom);
+                }
+        });    
+    
         screen.Loop(component);
  
     
@@ -91,6 +112,14 @@ int main(){
     
     catch(...){
         std::cerr<<"An unknown exception"<<std::endl;
+    }
+
+    if(ptr != MAP_FAILED){
+        munmap(ptr, 20); 
+    }    
+    
+    if(fd != -1){
+        close(fd);
     }
 
 

@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/consumer.dir/consumer.cpp.o CMakeFiles/consumer.dir/parser.cpp.o CMakeFiles/consumer.dir/cpu.cpp.o CMakeFiles/consumer.dir/ram.cpp.o -o consumer 

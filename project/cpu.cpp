@@ -49,7 +49,7 @@ std::vector<int> Cpu::calcTime(){
 	return res;
 }
 
-std::string Cpu::calcUsage(){
+float Cpu::calcUsage(){
 	std::vector<int> res1 = calcTime();
 	sleep(1);
 	std::vector<int> res2 = calcTime();
@@ -57,9 +57,7 @@ std::string Cpu::calcUsage(){
 	int total = res2[0] + res2[1] - res1[0] - res1[1];
 	int active = res2[0] - res1[0];
 	float usage = 100*(active*1.0/total);
-	std::string res = std::to_string(usage);
-	res.resize(4);	
-	return 	res + "%";
+	return 	usage;
 }
 
 

@@ -5,12 +5,6 @@ project(ftxui-starter
   VERSION 1.0.0
 )
 
-
-#project(consumer
-#    LANGUAGES CX
-#    VERSION 1.0.0
-#)
-
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -26,7 +20,6 @@ FetchContent_MakeAvailable(ftxui)
 add_executable(ftxui-starter runMonitoring.cpp parser.cpp cpu.cpp ram.cpp)
 
 add_executable(producer producer.cpp parser.cpp cpu.cpp ram.cpp dataCollector.cpp)
-#add_executable(consumer consumer.cpp parser.cpp cpu.cpp ram.cpp)
 
 
 target_include_directories(ftxui-starter PRIVATE src)

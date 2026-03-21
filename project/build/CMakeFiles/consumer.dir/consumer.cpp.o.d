@@ -1,5 +1,5 @@
-CMakeFiles/producer.dir/dataCollector.cpp.o: \
- /home/Ars/Desktop/Monitoring_Computer_Hardware/project/dataCollector.cpp \
+CMakeFiles/consumer.dir/consumer.cpp.o: \
+ /home/Ars/Desktop/Monitoring_Computer_Hardware/project/consumer.cpp \
  /usr/include/stdc-predef.h \
  /home/Ars/Desktop/Monitoring_Computer_Hardware/project/dataCollector.h \
  /usr/include/x86_64-linux-gnu/sys/mman.h /usr/include/features.h \
@@ -212,5 +212,4 @@ CMakeFiles/producer.dir/dataCollector.cpp.o: \
  /usr/include/c++/13/bits/quoted_string.h /usr/include/c++/13/sstream \
  /usr/include/c++/13/bits/sstream.tcc \
  /home/Ars/Desktop/Monitoring_Computer_Hardware/project/parser.h \
- /home/Ars/Desktop/Monitoring_Computer_Hardware/project/ram.h \
- /home/Ars/Desktop/Monitoring_Computer_Hardware/project/Structures.h
+ /home/Ars/Desktop/Monitoring_Computer_Hardware/project/ram.h

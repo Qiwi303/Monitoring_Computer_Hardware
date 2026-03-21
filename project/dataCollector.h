@@ -8,22 +8,7 @@
 
 #include "cpu.h"
 #include "ram.h"
-
-struct CpuTrack{
-    int usage;
-};
-
-struct RamTrack{
-    int total;      
-    int avaible; 
-};
-
-struct Monitoring{
-    CpuTrack cpu;
-    RamTrack ram;
-};
-
-
+#include "Structures.h"
 class DataCollector{
 public:
     DataCollector();
@@ -38,7 +23,6 @@ private:
     std::vector<std::thread> threads;    
 
     int size = 20;
-    int capacity;
     int fd;
 
     Monitoring* data;
