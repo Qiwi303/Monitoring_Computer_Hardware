@@ -195,6 +195,19 @@ ftxui-starter/fast:
 .PHONY : ftxui-starter/fast
 
 #=============================================================================
+# Target rules for targets named producer
+
+# Build rule for target.
+producer: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 producer
+.PHONY : producer
+
+# fast build rule for target.
+producer/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/build
+.PHONY : producer/fast
+
+#=============================================================================
 # Target rules for targets named screen
 
 # Build rule for target.
@@ -239,6 +252,7 @@ cpu.o: cpu.cpp.o
 # target to build an object file
 cpu.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/cpu.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/cpu.cpp.o
 .PHONY : cpu.cpp.o
 
 cpu.i: cpu.cpp.i
@@ -247,6 +261,7 @@ cpu.i: cpu.cpp.i
 # target to preprocess a source file
 cpu.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/cpu.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/cpu.cpp.i
 .PHONY : cpu.cpp.i
 
 cpu.s: cpu.cpp.s
@@ -255,7 +270,32 @@ cpu.s: cpu.cpp.s
 # target to generate assembly for a file
 cpu.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/cpu.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/cpu.cpp.s
 .PHONY : cpu.cpp.s
+
+dataCollector.o: dataCollector.cpp.o
+.PHONY : dataCollector.o
+
+# target to build an object file
+dataCollector.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/dataCollector.cpp.o
+.PHONY : dataCollector.cpp.o
+
+dataCollector.i: dataCollector.cpp.i
+.PHONY : dataCollector.i
+
+# target to preprocess a source file
+dataCollector.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/dataCollector.cpp.i
+.PHONY : dataCollector.cpp.i
+
+dataCollector.s: dataCollector.cpp.s
+.PHONY : dataCollector.s
+
+# target to generate assembly for a file
+dataCollector.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/dataCollector.cpp.s
+.PHONY : dataCollector.cpp.s
 
 parser.o: parser.cpp.o
 .PHONY : parser.o
@@ -263,6 +303,7 @@ parser.o: parser.cpp.o
 # target to build an object file
 parser.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/parser.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/parser.cpp.o
 .PHONY : parser.cpp.o
 
 parser.i: parser.cpp.i
@@ -271,6 +312,7 @@ parser.i: parser.cpp.i
 # target to preprocess a source file
 parser.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/parser.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/parser.cpp.i
 .PHONY : parser.cpp.i
 
 parser.s: parser.cpp.s
@@ -279,7 +321,32 @@ parser.s: parser.cpp.s
 # target to generate assembly for a file
 parser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/parser.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/parser.cpp.s
 .PHONY : parser.cpp.s
+
+producer.o: producer.cpp.o
+.PHONY : producer.o
+
+# target to build an object file
+producer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/producer.cpp.o
+.PHONY : producer.cpp.o
+
+producer.i: producer.cpp.i
+.PHONY : producer.i
+
+# target to preprocess a source file
+producer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/producer.cpp.i
+.PHONY : producer.cpp.i
+
+producer.s: producer.cpp.s
+.PHONY : producer.s
+
+# target to generate assembly for a file
+producer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/producer.cpp.s
+.PHONY : producer.cpp.s
 
 ram.o: ram.cpp.o
 .PHONY : ram.o
@@ -287,6 +354,7 @@ ram.o: ram.cpp.o
 # target to build an object file
 ram.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/ram.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/ram.cpp.o
 .PHONY : ram.cpp.o
 
 ram.i: ram.cpp.i
@@ -295,6 +363,7 @@ ram.i: ram.cpp.i
 # target to preprocess a source file
 ram.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/ram.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/ram.cpp.i
 .PHONY : ram.cpp.i
 
 ram.s: ram.cpp.s
@@ -303,6 +372,7 @@ ram.s: ram.cpp.s
 # target to generate assembly for a file
 ram.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/ram.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/ram.cpp.s
 .PHONY : ram.cpp.s
 
 runMonitoring.o: runMonitoring.cpp.o
@@ -346,13 +416,20 @@ help:
 	@echo "... component"
 	@echo "... dom"
 	@echo "... ftxui-starter"
+	@echo "... producer"
 	@echo "... screen"
 	@echo "... cpu.o"
 	@echo "... cpu.i"
 	@echo "... cpu.s"
+	@echo "... dataCollector.o"
+	@echo "... dataCollector.i"
+	@echo "... dataCollector.s"
 	@echo "... parser.o"
 	@echo "... parser.i"
 	@echo "... parser.s"
+	@echo "... producer.o"
+	@echo "... producer.i"
+	@echo "... producer.s"
 	@echo "... ram.o"
 	@echo "... ram.i"
 	@echo "... ram.s"

@@ -349,6 +349,15 @@ ftxui_SOURCE_DIR:STATIC=/home/Ars/Desktop/Monitoring_Computer_Hardware/project/b
 //Path to a program.
 iwyu_path:FILEPATH=iwyu_path-NOTFOUND
 
+//Value Computed by CMake
+producer_BINARY_DIR:STATIC=/home/Ars/Desktop/Monitoring_Computer_Hardware/project/build
+
+//Value Computed by CMake
+producer_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+producer_SOURCE_DIR:STATIC=/home/Ars/Desktop/Monitoring_Computer_Hardware/project
+
 
 ########################
 # INTERNAL cache entries

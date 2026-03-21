@@ -64,6 +64,7 @@ CMAKE_BINARY_DIR = /home/Ars/Desktop/Monitoring_Computer_Hardware/project/build
 
 # The main recursive "all" target.
 all: CMakeFiles/ftxui-starter.dir/all
+all: CMakeFiles/producer.dir/all
 all: _deps/ftxui-build/all
 .PHONY : all
 
@@ -73,6 +74,7 @@ preinstall: _deps/ftxui-build/preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/ftxui-starter.dir/clean
+clean: CMakeFiles/producer.dir/clean
 clean: _deps/ftxui-build/clean
 .PHONY : clean
 
@@ -159,13 +161,39 @@ CMakeFiles/ftxui-starter.dir/clean:
 .PHONY : CMakeFiles/ftxui-starter.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/producer.dir
+
+# All Build rule for target.
+CMakeFiles/producer.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/Ars/Desktop/Monitoring_Computer_Hardware/project/build/CMakeFiles --progress-num=71,72,73,74,75,76 "Built target producer"
+.PHONY : CMakeFiles/producer.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/producer.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/Ars/Desktop/Monitoring_Computer_Hardware/project/build/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/producer.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/Ars/Desktop/Monitoring_Computer_Hardware/project/build/CMakeFiles 0
+.PHONY : CMakeFiles/producer.dir/rule
+
+# Convenience name for target.
+producer: CMakeFiles/producer.dir/rule
+.PHONY : producer
+
+# clean rule for target.
+CMakeFiles/producer.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/clean
+.PHONY : CMakeFiles/producer.dir/clean
+
+#=============================================================================
 # Target rules for target _deps/ftxui-build/CMakeFiles/screen.dir
 
 # All Build rule for target.
 _deps/ftxui-build/CMakeFiles/screen.dir/all:
 	$(MAKE) $(MAKESILENT) -f _deps/ftxui-build/CMakeFiles/screen.dir/build.make _deps/ftxui-build/CMakeFiles/screen.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/ftxui-build/CMakeFiles/screen.dir/build.make _deps/ftxui-build/CMakeFiles/screen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/Ars/Desktop/Monitoring_Computer_Hardware/project/build/CMakeFiles --progress-num=71,72,73,74,75,76,77 "Built target screen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/Ars/Desktop/Monitoring_Computer_Hardware/project/build/CMakeFiles --progress-num=77,78,79,80,81,82,83 "Built target screen"
 .PHONY : _deps/ftxui-build/CMakeFiles/screen.dir/all
 
 # Build rule for subdir invocation for target.
