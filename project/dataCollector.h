@@ -9,6 +9,10 @@
 #include "cpu.h"
 #include "ram.h"
 #include "Structures.h"
+
+#include <csignal>
+#include <atomic>
+
 class DataCollector{
 public:
     DataCollector();
@@ -20,6 +24,8 @@ private:
     void cpuWorker();
     void ramWorker();
 
+    void static signal_handler(int signal);
+
     std::vector<std::thread> threads;    
 
     int size = 20;
@@ -27,4 +33,9 @@ private:
 
     Monitoring* data;
     void* ptr = MAP_FAILED;
+
+    std::atomic<bool> run = true;
+    static DataCollector* curr;
+
 };
+

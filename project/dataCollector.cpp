@@ -1,8 +1,16 @@
 #include "dataCollector.h"
 
+DataCollector* DataCollector::curr = nullptr;
+
+void DataCollector::signal_handler(int signal){
+    if(signal == SIGTERM || signal == SIGINT){
+        curr->run = false;
+    }
+}
+
 void DataCollector::cpuWorker(){
     Cpu cpu;
-    while(true){
+    while(run){
         data->cpu.usage = cpu.calcUsage();
     }
 }
@@ -10,7 +18,7 @@ void DataCollector::cpuWorker(){
 void DataCollector::ramWorker(){
     Ram ram;
     std::vector<int> res;
-    while(true){
+    while(run){
         res = ram.getMemInfo();
         data->ram.total = res[0];
         data->ram.avaible = res[1];
@@ -42,6 +50,11 @@ DataCollector::DataCollector(){
     
     data = static_cast<Monitoring*>(ptr);
     
+    curr = this;
+
+    std::signal(SIGINT, signal_handler);
+    std::signal(SIGTERM, signal_handler);
+   
     DataCollector::startThreads();
 }
 
