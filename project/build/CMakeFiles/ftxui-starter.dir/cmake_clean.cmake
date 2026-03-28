@@ -1,10 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/ftxui-starter.dir/cpu.cpp.o"
-  "CMakeFiles/ftxui-starter.dir/cpu.cpp.o.d"
-  "CMakeFiles/ftxui-starter.dir/parser.cpp.o"
-  "CMakeFiles/ftxui-starter.dir/parser.cpp.o.d"
-  "CMakeFiles/ftxui-starter.dir/ram.cpp.o"
-  "CMakeFiles/ftxui-starter.dir/ram.cpp.o.d"
+  "CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.o"
+  "CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.o.d"
   "CMakeFiles/ftxui-starter.dir/runMonitoring.cpp.o"
   "CMakeFiles/ftxui-starter.dir/runMonitoring.cpp.o.d"
   "ftxui-starter"

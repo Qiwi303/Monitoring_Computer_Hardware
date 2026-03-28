@@ -8,9 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/Ars/Desktop/Monitoring_Computer_Hardware/project/cpu.cpp" "CMakeFiles/ftxui-starter.dir/cpu.cpp.o" "gcc" "CMakeFiles/ftxui-starter.dir/cpu.cpp.o.d"
-  "/home/Ars/Desktop/Monitoring_Computer_Hardware/project/parser.cpp" "CMakeFiles/ftxui-starter.dir/parser.cpp.o" "gcc" "CMakeFiles/ftxui-starter.dir/parser.cpp.o.d"
-  "/home/Ars/Desktop/Monitoring_Computer_Hardware/project/ram.cpp" "CMakeFiles/ftxui-starter.dir/ram.cpp.o" "gcc" "CMakeFiles/ftxui-starter.dir/ram.cpp.o.d"
+  "/home/Ars/Desktop/Monitoring_Computer_Hardware/project/TuiPanel.cpp" "CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.o" "gcc" "CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.o.d"
   "/home/Ars/Desktop/Monitoring_Computer_Hardware/project/runMonitoring.cpp" "CMakeFiles/ftxui-starter.dir/runMonitoring.cpp.o" "gcc" "CMakeFiles/ftxui-starter.dir/runMonitoring.cpp.o.d"
   )
 

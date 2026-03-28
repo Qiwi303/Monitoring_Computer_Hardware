@@ -17,7 +17,7 @@ FetchContent_Declare(ftxui
 
 FetchContent_MakeAvailable(ftxui)
 
-add_executable(ftxui-starter runMonitoring.cpp parser.cpp cpu.cpp ram.cpp)
+add_executable(ftxui-starter runMonitoring.cpp TuiPanel.cpp )
 
 add_executable(producer producer.cpp parser.cpp cpu.cpp ram.cpp dataCollector.cpp)
 

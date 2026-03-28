@@ -1,6 +1,8 @@
 CMakeFiles/ftxui-starter.dir/runMonitoring.cpp.o: \
  /home/Ars/Desktop/Monitoring_Computer_Hardware/project/runMonitoring.cpp \
- /usr/include/stdc-predef.h /usr/include/unistd.h /usr/include/features.h \
+ /usr/include/stdc-predef.h \
+ /home/Ars/Desktop/Monitoring_Computer_Hardware/project/TuiPanel.h \
+ /usr/include/unistd.h /usr/include/features.h \
  /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/bits/timesize.h \
@@ -260,4 +262,8 @@ CMakeFiles/ftxui-starter.dir/runMonitoring.cpp.o: \
  /usr/include/c++/13/bits/std_thread.h \
  /usr/include/c++/13/bits/this_thread_sleep.h \
  /home/Ars/Desktop/Monitoring_Computer_Hardware/project/build/_deps/ftxui-src/include/ftxui/component/task.hpp \
- /home/Ars/Desktop/Monitoring_Computer_Hardware/project/Structures.h
+ /home/Ars/Desktop/Monitoring_Computer_Hardware/project/Structures.h \
+ /home/Ars/Desktop/Monitoring_Computer_Hardware/project/TuiComp.h \
+ /usr/include/c++/13/cstring /usr/include/string.h /usr/include/strings.h \
+ /home/Ars/Desktop/Monitoring_Computer_Hardware/project/TuiRam.h \
+ /home/Ars/Desktop/Monitoring_Computer_Hardware/project/TuiCpu.h

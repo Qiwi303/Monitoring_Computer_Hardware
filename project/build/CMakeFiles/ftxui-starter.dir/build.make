@@ -83,62 +83,30 @@ CMakeFiles/ftxui-starter.dir/runMonitoring.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ftxui-starter.dir/runMonitoring.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Ars/Desktop/Monitoring_Computer_Hardware/project/runMonitoring.cpp -o CMakeFiles/ftxui-starter.dir/runMonitoring.cpp.s
 
-CMakeFiles/ftxui-starter.dir/parser.cpp.o: CMakeFiles/ftxui-starter.dir/flags.make
-CMakeFiles/ftxui-starter.dir/parser.cpp.o: /home/Ars/Desktop/Monitoring_Computer_Hardware/project/parser.cpp
-CMakeFiles/ftxui-starter.dir/parser.cpp.o: CMakeFiles/ftxui-starter.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Ars/Desktop/Monitoring_Computer_Hardware/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ftxui-starter.dir/parser.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ftxui-starter.dir/parser.cpp.o -MF CMakeFiles/ftxui-starter.dir/parser.cpp.o.d -o CMakeFiles/ftxui-starter.dir/parser.cpp.o -c /home/Ars/Desktop/Monitoring_Computer_Hardware/project/parser.cpp
+CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.o: CMakeFiles/ftxui-starter.dir/flags.make
+CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.o: /home/Ars/Desktop/Monitoring_Computer_Hardware/project/TuiPanel.cpp
+CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.o: CMakeFiles/ftxui-starter.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Ars/Desktop/Monitoring_Computer_Hardware/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.o -MF CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.o.d -o CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.o -c /home/Ars/Desktop/Monitoring_Computer_Hardware/project/TuiPanel.cpp
 
-CMakeFiles/ftxui-starter.dir/parser.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ftxui-starter.dir/parser.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Ars/Desktop/Monitoring_Computer_Hardware/project/parser.cpp > CMakeFiles/ftxui-starter.dir/parser.cpp.i
+CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Ars/Desktop/Monitoring_Computer_Hardware/project/TuiPanel.cpp > CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.i
 
-CMakeFiles/ftxui-starter.dir/parser.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ftxui-starter.dir/parser.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Ars/Desktop/Monitoring_Computer_Hardware/project/parser.cpp -o CMakeFiles/ftxui-starter.dir/parser.cpp.s
-
-CMakeFiles/ftxui-starter.dir/cpu.cpp.o: CMakeFiles/ftxui-starter.dir/flags.make
-CMakeFiles/ftxui-starter.dir/cpu.cpp.o: /home/Ars/Desktop/Monitoring_Computer_Hardware/project/cpu.cpp
-CMakeFiles/ftxui-starter.dir/cpu.cpp.o: CMakeFiles/ftxui-starter.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Ars/Desktop/Monitoring_Computer_Hardware/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ftxui-starter.dir/cpu.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ftxui-starter.dir/cpu.cpp.o -MF CMakeFiles/ftxui-starter.dir/cpu.cpp.o.d -o CMakeFiles/ftxui-starter.dir/cpu.cpp.o -c /home/Ars/Desktop/Monitoring_Computer_Hardware/project/cpu.cpp
-
-CMakeFiles/ftxui-starter.dir/cpu.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ftxui-starter.dir/cpu.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Ars/Desktop/Monitoring_Computer_Hardware/project/cpu.cpp > CMakeFiles/ftxui-starter.dir/cpu.cpp.i
-
-CMakeFiles/ftxui-starter.dir/cpu.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ftxui-starter.dir/cpu.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Ars/Desktop/Monitoring_Computer_Hardware/project/cpu.cpp -o CMakeFiles/ftxui-starter.dir/cpu.cpp.s
-
-CMakeFiles/ftxui-starter.dir/ram.cpp.o: CMakeFiles/ftxui-starter.dir/flags.make
-CMakeFiles/ftxui-starter.dir/ram.cpp.o: /home/Ars/Desktop/Monitoring_Computer_Hardware/project/ram.cpp
-CMakeFiles/ftxui-starter.dir/ram.cpp.o: CMakeFiles/ftxui-starter.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Ars/Desktop/Monitoring_Computer_Hardware/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ftxui-starter.dir/ram.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ftxui-starter.dir/ram.cpp.o -MF CMakeFiles/ftxui-starter.dir/ram.cpp.o.d -o CMakeFiles/ftxui-starter.dir/ram.cpp.o -c /home/Ars/Desktop/Monitoring_Computer_Hardware/project/ram.cpp
-
-CMakeFiles/ftxui-starter.dir/ram.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ftxui-starter.dir/ram.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Ars/Desktop/Monitoring_Computer_Hardware/project/ram.cpp > CMakeFiles/ftxui-starter.dir/ram.cpp.i
-
-CMakeFiles/ftxui-starter.dir/ram.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ftxui-starter.dir/ram.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Ars/Desktop/Monitoring_Computer_Hardware/project/ram.cpp -o CMakeFiles/ftxui-starter.dir/ram.cpp.s
+CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Ars/Desktop/Monitoring_Computer_Hardware/project/TuiPanel.cpp -o CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.s
 
 # Object files for target ftxui-starter
 ftxui__starter_OBJECTS = \
 "CMakeFiles/ftxui-starter.dir/runMonitoring.cpp.o" \
-"CMakeFiles/ftxui-starter.dir/parser.cpp.o" \
-"CMakeFiles/ftxui-starter.dir/cpu.cpp.o" \
-"CMakeFiles/ftxui-starter.dir/ram.cpp.o"
+"CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.o"
 
 # External object files for target ftxui-starter
 ftxui__starter_EXTERNAL_OBJECTS =
 
 ftxui-starter: CMakeFiles/ftxui-starter.dir/runMonitoring.cpp.o
-ftxui-starter: CMakeFiles/ftxui-starter.dir/parser.cpp.o
-ftxui-starter: CMakeFiles/ftxui-starter.dir/cpu.cpp.o
-ftxui-starter: CMakeFiles/ftxui-starter.dir/ram.cpp.o
+ftxui-starter: CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.o
 ftxui-starter: CMakeFiles/ftxui-starter.dir/build.make
 ftxui-starter: _deps/ftxui-build/libftxui-screen.a
 ftxui-starter: _deps/ftxui-build/libftxui-dom.a
@@ -146,7 +114,7 @@ ftxui-starter: _deps/ftxui-build/libftxui-component.a
 ftxui-starter: _deps/ftxui-build/libftxui-dom.a
 ftxui-starter: _deps/ftxui-build/libftxui-screen.a
 ftxui-starter: CMakeFiles/ftxui-starter.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/Ars/Desktop/Monitoring_Computer_Hardware/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ftxui-starter"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/Ars/Desktop/Monitoring_Computer_Hardware/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ftxui-starter"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ftxui-starter.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

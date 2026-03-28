@@ -246,12 +246,35 @@ component/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/ftxui-build/CMakeFiles/component.dir/build.make _deps/ftxui-build/CMakeFiles/component.dir/build
 .PHONY : component/fast
 
+TuiPanel.o: TuiPanel.cpp.o
+.PHONY : TuiPanel.o
+
+# target to build an object file
+TuiPanel.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.o
+.PHONY : TuiPanel.cpp.o
+
+TuiPanel.i: TuiPanel.cpp.i
+.PHONY : TuiPanel.i
+
+# target to preprocess a source file
+TuiPanel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.i
+.PHONY : TuiPanel.cpp.i
+
+TuiPanel.s: TuiPanel.cpp.s
+.PHONY : TuiPanel.s
+
+# target to generate assembly for a file
+TuiPanel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.s
+.PHONY : TuiPanel.cpp.s
+
 cpu.o: cpu.cpp.o
 .PHONY : cpu.o
 
 # target to build an object file
 cpu.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/cpu.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/cpu.cpp.o
 .PHONY : cpu.cpp.o
 
@@ -260,7 +283,6 @@ cpu.i: cpu.cpp.i
 
 # target to preprocess a source file
 cpu.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/cpu.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/cpu.cpp.i
 .PHONY : cpu.cpp.i
 
@@ -269,7 +291,6 @@ cpu.s: cpu.cpp.s
 
 # target to generate assembly for a file
 cpu.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/cpu.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/cpu.cpp.s
 .PHONY : cpu.cpp.s
 
@@ -302,7 +323,6 @@ parser.o: parser.cpp.o
 
 # target to build an object file
 parser.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/parser.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/parser.cpp.o
 .PHONY : parser.cpp.o
 
@@ -311,7 +331,6 @@ parser.i: parser.cpp.i
 
 # target to preprocess a source file
 parser.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/parser.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/parser.cpp.i
 .PHONY : parser.cpp.i
 
@@ -320,7 +339,6 @@ parser.s: parser.cpp.s
 
 # target to generate assembly for a file
 parser.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/parser.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/parser.cpp.s
 .PHONY : parser.cpp.s
 
@@ -353,7 +371,6 @@ ram.o: ram.cpp.o
 
 # target to build an object file
 ram.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/ram.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/ram.cpp.o
 .PHONY : ram.cpp.o
 
@@ -362,7 +379,6 @@ ram.i: ram.cpp.i
 
 # target to preprocess a source file
 ram.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/ram.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/ram.cpp.i
 .PHONY : ram.cpp.i
 
@@ -371,7 +387,6 @@ ram.s: ram.cpp.s
 
 # target to generate assembly for a file
 ram.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/ram.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/ram.cpp.s
 .PHONY : ram.cpp.s
 
@@ -418,6 +433,9 @@ help:
 	@echo "... ftxui-starter"
 	@echo "... producer"
 	@echo "... screen"
+	@echo "... TuiPanel.o"
+	@echo "... TuiPanel.i"
+	@echo "... TuiPanel.s"
 	@echo "... cpu.o"
 	@echo "... cpu.i"
 	@echo "... cpu.s"
