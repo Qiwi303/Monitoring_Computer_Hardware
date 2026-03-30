@@ -7,7 +7,6 @@ cmake --build "$BUILD_PATH"
 if ! pgrep -x "producer" > /dev/null; then
 "$BUILD_PATH/producer" &
 
-echo "producer start working"
 
 fi
 
