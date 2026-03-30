@@ -12,6 +12,7 @@ void DataCollector::cpuWorker(){
     Cpu cpu;
     while(run){
         data->cpu.usage = cpu.calcUsage();
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
 }
 
@@ -22,6 +23,7 @@ void DataCollector::ramWorker(){
         res = ram.getMemInfo();
         data->ram.total = res[0];
         data->ram.avaible = res[1];
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
 
 }

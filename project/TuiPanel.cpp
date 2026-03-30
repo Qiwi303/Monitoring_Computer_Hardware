@@ -1,32 +1,25 @@
 #include "TuiPanel.h"
 
-TuiPanel::TuiPanel(){
-    components.push_back(std::make_shared<TuiCpu>(&(point->data->CpuTrack)));    
-    components.push_back(std::make_shared<TuiRam>(&(point->data->RamTrack)));
-
-    point = std::make_shread<ShmWrapper>();
+TuiPanel::TuiPanel(): screen(ScreenInteractive::FitComponent()),
+    point(std::make_shared<ShmWrapper>()){
+            
+    components.push_back(std::make_shared<TuiMain>());
+    components.push_back(std::make_shared<TuiCpu>(&(point->getPtr()->cpu)));    
+    components.push_back(std::make_shared<TuiRam>(&(point->getPtr()->ram)));
+    
+    auto exitTui = screen.ExitLoopClosure(); 
     
     buttons = Container::Horizontal({
-            Button("main", [&] {block = TuiBlock::main;}),
-            Button("cpu", [&] {block = TuiBlock::cpu;}),
-            Button("ram", [&] {k = TuiBlock::ram;}),
+            Button("main", [this] {block = TuiBlock::main;}),
+            Button("cpu", [this] {block = TuiBlock::cpu;}),
+            Button("ram", [this] {block = TuiBlock::ram;}),
+            Button("quit", [exitTui] {exitTui();})
     });
     
         
 }
 
-ftxui::Element TuiPanel::setBox(){
-    int index = static_cast<int>(block);
-    ftxui::Element box = components[index]->getBox();
-    
-    return vbox({
-        buttons->Render(),
-        box  
-    });
- 
-}
-
-void TuiPanel::refreshScreen(bool& running){
+void TuiPanel::refreshScreen(){
     while (running) {
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
         screen.PostEvent(Event::Custom);
@@ -34,21 +27,22 @@ void TuiPanel::refreshScreen(bool& running){
 }
 
 void TuiPanel::runTui(){
-    mainComponent = Renderer(buttons, SetBox);
-    auto screen = ScreenInteractive::FitComponent();
-        
-
-    bool running = true;
-    std::thread refresh(refreshScreen, running);
+    auto mainComponent = Renderer(buttons, [this]{
+        int index = static_cast<int>(block);
+        ftxui::Element box = components[index]->getBox();
     
-    screenLoop(component);
+        return vbox({
+                buttons->Render(),
+                box  
+        });
+    });
+        
+    std::thread refresh(&TuiPanel::refreshScreen, this);
+    
+    screen.Loop(mainComponent);
     
     running = false;
     refresh.join();
-
 }
 
-TuiPanel::~TuiPanel(){
-
-
-}; 
+//TuiPanel::~TuiPanel(){}; 

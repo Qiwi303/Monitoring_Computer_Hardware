@@ -11,5 +11,5 @@ public:
         });
     }
 private:
-    CpuTrack* data
+    CpuTrack* data;
 };

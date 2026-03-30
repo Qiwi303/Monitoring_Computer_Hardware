@@ -12,15 +12,14 @@
 
 #include <csignal>
 #include <atomic>
-
+#include <chrono>
 class DataCollector{
 public:
     DataCollector();
     ~DataCollector();    
 
 private:
-    void startThreads();
- 
+    void startThreads(); 
     void cpuWorker();
     void ramWorker();
 
@@ -28,7 +27,7 @@ private:
 
     std::vector<std::thread> threads;    
 
-    int size = 20;
+    int size = sizeof(Monitoring);
     int fd;
 
     Monitoring* data;

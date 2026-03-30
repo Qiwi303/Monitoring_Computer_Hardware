@@ -3,7 +3,7 @@
 
 int main(){
     try{
-        TuiPanel monitoring();
+        TuiPanel monitoring;
         monitoring.runTui();
     }
     

@@ -26,8 +26,9 @@
 #include <stdexcept>
 
 #include "TuiComp.h"
-#include "TuiRam.h"
+#include "TuiMain.h"
 #include "TuiCpu.h"
+#include "TuiRam.h"
 
 
 class ShmWrapper{
@@ -55,7 +56,7 @@ public:
     }
 
 private:
-    int size = 20;
+    int size = sizeof(Monitoring);
     int fd;
     void* ptr;
     Monitoring* data = nullptr;
@@ -73,17 +74,17 @@ enum class TuiBlock{
 class TuiPanel{
 public:
     TuiPanel();
-    ~TuiPanel();
+    ~TuiPanel() = default;
 
-    ftxui::Element setBox();
-    void refreshScreen(bool& running);
+    void refreshScreen();
     void runTui();
 
 private:
-    std::shared_ptr<ShmWrapper> point;
+    std::shared_ptr<ShmWrapper> point; 
+    ftxui::ScreenInteractive screen;
     
-    TuiBlock block; 
+    TuiBlock block = TuiBlock::main; 
     ftxui::Component buttons;
     std::vector<std::shared_ptr<TuiComp>> components;
-    
+    std::atomic<bool> running{true};    
 };
