@@ -4,10 +4,7 @@
 #include <iostream>
 #include <sys/types.h>
 #include <cassert>
-
-#include <sys/mman.h>
 #include <sys/stat.h>
-#include <fcntl.h>
 
 
 #include "ftxui/component/captured_mouse.hpp"
@@ -18,49 +15,17 @@
 #include "ftxui/dom/elements.hpp"  
 #include "ftxui/screen/color.hpp"
 
-#include "Structures.h"
 
 #include <thread>
 #include <chrono>
 
-#include <stdexcept>
+#include "ShmWrapper.h"
 
-#include "TuiComp.h"
-#include "TuiMain.h"
-#include "TuiCpu.h"
-#include "TuiRam.h"
+#include "TuiParts/TuiComp.h"
+#include "TuiParts/TuiMain.h"
+#include "TuiParts/TuiCpu.h"
+#include "TuiParts/TuiRam.h"
 
-
-class ShmWrapper{
-public:
-    ShmWrapper(){
-        fd = shm_open("/shared_data", O_RDONLY, 0444 );
-        if(fd < 0){
-            throw std::runtime_error("Failed to shm_open shared_data");
-        }
-
-        ptr = mmap(nullptr, 20, PROT_READ, MAP_SHARED, fd, 0);
-        if(ptr == MAP_FAILED){
-            if(fd != -1) close(fd);
-            throw std::runtime_error("Failed to mmap shared_data");
-        }
-
-        data = static_cast<Monitoring*>(ptr);
-    }
-
-    Monitoring* getPtr(){ return data; }
-    
-    ~ShmWrapper(){
-        if(ptr != MAP_FAILED) munmap(ptr, size); 
-        if(fd != -1) close(fd);
-    }
-
-private:
-    int size = sizeof(Monitoring);
-    int fd;
-    void* ptr;
-    Monitoring* data = nullptr;
-};
 
 
 

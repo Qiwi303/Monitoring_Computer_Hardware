@@ -19,7 +19,7 @@ FetchContent_MakeAvailable(ftxui)
 
 add_executable(ftxui-starter runMonitoring.cpp TuiPanel.cpp )
 
-add_executable(producer producer.cpp parser.cpp cpu.cpp ram.cpp dataCollector.cpp)
+add_executable(producer producer.cpp ParseStat/Parser.cpp ParseStat/Cpu.cpp ParseStat/Ram.cpp DataCollector.cpp)
 
 
 target_include_directories(ftxui-starter PRIVATE src)

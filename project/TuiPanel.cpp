@@ -1,7 +1,7 @@
 #include "TuiPanel.h"
 
 TuiPanel::TuiPanel(): screen(ScreenInteractive::FitComponent()),
-    point(std::make_shared<ShmWrapper>()){
+    point(std::make_shared<ShmWrapper>(false)){
             
     components.push_back(std::make_shared<TuiMain>());
     components.push_back(std::make_shared<TuiCpu>(&(point->getPtr()->cpu)));    
