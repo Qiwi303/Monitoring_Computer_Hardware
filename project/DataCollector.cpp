@@ -10,8 +10,16 @@ void DataCollector::signal_handler(int signal){
 
 void DataCollector::cpuWorker(){
     Cpu cpu;
+    uint32_t* cacheFromCpu = cpu.getCache();
+    for (int i = 0; i < 4; ++i) {
+        point->getPtr()->cpu.cache[i] = cacheFromCpu[i];
+    }
+    
     while(run){
-        point->getPtr()->cpu.usage = cpu.calcUsage();
+        auto data = point->getPtr();
+        std::memmove(&data->cpu.usageHistory[0], &data->cpu.usageHistory[1], 59 * sizeof(float));
+        data->cpu.usageHistory[59] = cpu.calcUsage();
+        data->cpu.freq = cpu.getFreq();
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
 }

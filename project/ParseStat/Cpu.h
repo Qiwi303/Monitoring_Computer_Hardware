@@ -9,6 +9,9 @@
 #include "Parser.h"
 #include <stdexcept>
 #include <cerrno>
+#include <cpuid.h>
+#include <cstdint>
+#include <thread>
 
 class Cpu{
 public:
@@ -16,7 +19,10 @@ public:
 	~Cpu();
 	std::vector<int> calcTime();
 	float calcUsage();
-
+    uint32_t* getCache();
+    int getFreq();
 private:
-	int fd;
+	int fdStat = -1;
+    int fdCpuInfo = -1;
+    uint32_t cache[3] = {0, 0, 0};
 };

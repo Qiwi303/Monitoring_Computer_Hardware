@@ -1,7 +1,9 @@
 #pragma once
-
+#include <cstdint>
 struct CpuTrack{
-    float usage;
+    float usageHistory[60] = {0.0f};
+    uint32_t cache[3];
+    int freq;
 };
 
 struct RamTrack{
