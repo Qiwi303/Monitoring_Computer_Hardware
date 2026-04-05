@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/producer.dir/producer.cpp.o CMakeFiles/producer.dir/ParseStat/Parser.cpp.o CMakeFiles/producer.dir/ParseStat/Cpu.cpp.o CMakeFiles/producer.dir/ParseStat/Ram.cpp.o CMakeFiles/producer.dir/DataCollector.cpp.o -o producer 

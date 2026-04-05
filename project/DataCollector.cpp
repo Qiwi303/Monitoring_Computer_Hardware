@@ -26,11 +26,17 @@ void DataCollector::cpuWorker(){
 
 void DataCollector::ramWorker(){
     Ram ram;
-    std::vector<int> res;
+    std::vector<float> res;
+    auto data = point->getPtr();    
+
     while(run){
         res = ram.getMemInfo();
-        point->getPtr()->ram.total = res[0];
-        point->getPtr()->ram.avaible = res[1];
+        data->ram.total = res[0];
+        data->ram.avaible = res[1]; 
+        
+        std::memmove(&data->ram.usageHistory[0], &data->ram.usageHistory[1], 59 * sizeof(float));
+        data->ram.usageHistory[59] = (1 - res[1]/res[0]);     
+    
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
 

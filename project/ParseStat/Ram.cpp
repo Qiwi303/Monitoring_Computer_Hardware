@@ -20,7 +20,7 @@ Ram::Ram(){
  }
 
 
-std::vector<int> Ram::getMemInfo(){
+std::vector<float> Ram::getMemInfo(){
 	int size = 128;
 	char buff[128];
 
@@ -35,13 +35,13 @@ std::vector<int> Ram::getMemInfo(){
 		std::cerr<<"Failed to lseek"<<std::endl;
 	}	
 
-	std::vector res(2, 0);
+	std::vector<float> res(2, 0);
 	int index = parser::findNthChr(buff, 'k', size, 3);	
 
-	res[1] = parser::castToInt(buff, --index, ' ');
+	res[1] = (parser::castToInt(buff, --index, ' ')) / 1024.0f;
 	
 	index = parser::findNthChr(buff, 'k', size, 1);
-	res[0] = parser::castToInt(buff, --index, ' ');	
+	res[0] = parser::castToInt(buff, --index, ' ') / 1024.0f;	
 
 	return res;
 

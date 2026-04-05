@@ -10,7 +10,7 @@ class Ram{
 public:
     Ram();
     ~Ram();
-    std::vector<int> getMemInfo();    
+    std::vector<float> getMemInfo();    
 
 private:
     int fd;

@@ -7,8 +7,9 @@ struct CpuTrack{
 };
 
 struct RamTrack{
-    int total;      
-    int avaible; 
+    float total;      
+    float avaible;
+    float usageHistory[60] = {0.0f};
 };
 
 struct Monitoring{
