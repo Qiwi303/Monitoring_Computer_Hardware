@@ -24,16 +24,11 @@ std::vector<float> Ram::getMemInfo(){
 	int size = 128;
 	char buff[128];
 
-	int rd = read(fd, buff, size);
+	int rd = pread(fd, buff, size, 0);
 	if(rd == -1){
 		std::cerr<<"Failed to read"<<std::endl;
 		exit(1);
 	}
-	
-	int ls = lseek(fd, 0, SEEK_SET);
-	if(ls == -1){
-		std::cerr<<"Failed to lseek"<<std::endl;
-	}	
 
 	std::vector<float> res(2, 0);
 	int index = parser::findNthChr(buff, 'k', size, 3);	

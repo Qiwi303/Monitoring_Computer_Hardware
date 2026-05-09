@@ -1,6 +1,6 @@
 #include "TuiPanel.h"
 
-TuiPanel::TuiPanel(): screen(ScreenInteractive::FitComponent()),
+TuiPanel::TuiPanel(): screen(ScreenInteractive::Fullscreen()),
     point(std::make_shared<ShmWrapper>(false)){
             
     components.push_back(std::make_shared<TuiMain>());

@@ -37,17 +37,11 @@ Cpu::~Cpu(){
 
 }
 
-std::vector<int> Cpu::calcTime(){
-	int ls = lseek(fdStat, 0, SEEK_SET);	
-	if(ls == -1){
-		std::cerr<<"Failed to lseek to start"<<std::endl;
-		exit(1);
-	}
-	
+std::vector<int> Cpu::calcTime(){	
 	int size = 128;
 	char buff[128];
 	
-	int rd = read(fdStat, buff, size);
+	int rd = pread(fdStat, buff, size, 0);
 	if(rd == -1){
 		std::cerr<<"Failed to read"<<std::endl;
 		exit(1);
@@ -98,16 +92,10 @@ uint32_t* Cpu::getCache(){
 }
 
 int Cpu::getFreq(){
-	int ls = lseek(fdCpuInfo, 0, SEEK_SET);	
-	if(ls == -1){
-		std::cerr<<"Failed to lseek to start"<<std::endl;
-		exit(1);
-	}
-	
 	int size = 256;
 	char buff[256];
 	
-	int rd = read(fdCpuInfo, buff, size);
+	int rd = pread(fdCpuInfo, buff, size, 0);
 	if(rd == -1){
 		std::cerr<<"Failed to read"<<std::endl;
 		exit(1);
