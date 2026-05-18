@@ -208,6 +208,19 @@ producer/fast:
 .PHONY : producer/fast
 
 #=============================================================================
+# Target rules for targets named client
+
+# Build rule for target.
+client: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 client
+.PHONY : client
+
+# fast build rule for target.
+client/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
+.PHONY : client/fast
+
+#=============================================================================
 # Target rules for targets named screen
 
 # Build rule for target.
@@ -245,6 +258,30 @@ component: cmake_check_build_system
 component/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/ftxui-build/CMakeFiles/component.dir/build.make _deps/ftxui-build/CMakeFiles/component.dir/build
 .PHONY : component/fast
+
+Client.o: Client.cpp.o
+.PHONY : Client.o
+
+# target to build an object file
+Client.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/Client.cpp.o
+.PHONY : Client.cpp.o
+
+Client.i: Client.cpp.i
+.PHONY : Client.i
+
+# target to preprocess a source file
+Client.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/Client.cpp.i
+.PHONY : Client.cpp.i
+
+Client.s: Client.cpp.s
+.PHONY : Client.s
+
+# target to generate assembly for a file
+Client.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/Client.cpp.s
+.PHONY : Client.cpp.s
 
 DataCollector.o: DataCollector.cpp.o
 .PHONY : DataCollector.o
@@ -390,6 +427,30 @@ producer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/producer.dir/build.make CMakeFiles/producer.dir/producer.cpp.s
 .PHONY : producer.cpp.s
 
+runClient.o: runClient.cpp.o
+.PHONY : runClient.o
+
+# target to build an object file
+runClient.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/runClient.cpp.o
+.PHONY : runClient.cpp.o
+
+runClient.i: runClient.cpp.i
+.PHONY : runClient.i
+
+# target to preprocess a source file
+runClient.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/runClient.cpp.i
+.PHONY : runClient.cpp.i
+
+runClient.s: runClient.cpp.s
+.PHONY : runClient.s
+
+# target to generate assembly for a file
+runClient.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/runClient.cpp.s
+.PHONY : runClient.cpp.s
+
 runMonitoring.o: runMonitoring.cpp.o
 .PHONY : runMonitoring.o
 
@@ -428,11 +489,15 @@ help:
 	@echo "... package"
 	@echo "... package_source"
 	@echo "... rebuild_cache"
+	@echo "... client"
 	@echo "... component"
 	@echo "... dom"
 	@echo "... ftxui-starter"
 	@echo "... producer"
 	@echo "... screen"
+	@echo "... Client.o"
+	@echo "... Client.i"
+	@echo "... Client.s"
 	@echo "... DataCollector.o"
 	@echo "... DataCollector.i"
 	@echo "... DataCollector.s"
@@ -451,6 +516,9 @@ help:
 	@echo "... producer.o"
 	@echo "... producer.i"
 	@echo "... producer.s"
+	@echo "... runClient.o"
+	@echo "... runClient.i"
+	@echo "... runClient.s"
 	@echo "... runMonitoring.o"
 	@echo "... runMonitoring.i"
 	@echo "... runMonitoring.s"

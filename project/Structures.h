@@ -1,7 +1,10 @@
 #pragma once
 #include <cstdint>
 
-namespace Network{inline constexpr int PORT = 9099;}
+namespace Network{
+    inline constexpr int PORT = 9099;
+    std::string name = "MONI";
+} 
 
 struct CpuTrack{
     float usageHistory[60] = {0.0f};

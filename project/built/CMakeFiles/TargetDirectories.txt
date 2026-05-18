@@ -1,5 +1,6 @@
 /home/Ars/Desktop/Monitoring_Computer_Hardware/project/built/CMakeFiles/ftxui-starter.dir
 /home/Ars/Desktop/Monitoring_Computer_Hardware/project/built/CMakeFiles/producer.dir
+/home/Ars/Desktop/Monitoring_Computer_Hardware/project/built/CMakeFiles/client.dir
 /home/Ars/Desktop/Monitoring_Computer_Hardware/project/built/CMakeFiles/package.dir
 /home/Ars/Desktop/Monitoring_Computer_Hardware/project/built/CMakeFiles/package_source.dir
 /home/Ars/Desktop/Monitoring_Computer_Hardware/project/built/CMakeFiles/edit_cache.dir
