@@ -1,9 +1,9 @@
 #include "Server.h" 
 
 Server::Server(){
-        beaconSock = socket(AF_INET, SOCK_DGRAM, 0);
-        if(beaconSock < 0){
-            throw std::runtime_error("Failed to create beaconSock");
+        dataSock = socket(AF_INET, SOCK_DGRAM, 0);
+        if(dataSock < 0){
+            throw std::runtime_error("Failed to create dataSock");
         }    
     
         int opt = 1;
@@ -18,11 +18,11 @@ Server::Server(){
         
         
    
-    // int binded = bind(beaconSock, (sockaddr*)&server, sizeof(server));
+        int binded = bind(beaconSock, (sockaddr*)&server, sizeof(server));
     
-        //if(binded == -1){
-            //throw std::runtime_error("Failed to bind socket to server");
-        //}
+        if(binded == -1){
+            throw std::runtime_error("Failed to bind socket to server");
+        }
 }
 
 
@@ -55,4 +55,4 @@ Server::~Server(){
 
 
 
- 
+

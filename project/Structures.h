@@ -1,9 +1,10 @@
 #pragma once
 #include <cstdint>
+#include <iostream>
 
 namespace Network{
     inline constexpr int PORT = 9099;
-    std::string name = "MONI";
+    inline std::string name = "MONI";
 } 
 
 struct CpuTrack{

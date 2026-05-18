@@ -14,13 +14,13 @@
 class Client{
 public:
     Client();
-    void findServer();
+//    void findServer();
     void run();    
     ~Client();
 
 private:
     std::shared_ptr<ShmWrapper> point;
-    int searchSock = -1;
+//    int searchSock = -1;
     int dataSock = -1;
     int index = -1;
     sockaddr_in server{};
