@@ -7,6 +7,9 @@
 #include "Structures.h"
 #include <map>
 #include <thread>
+#include <sys/epoll.h>
+
+#define MAX_EVENTS 10
 
 Class Server{
 public:
@@ -16,6 +19,8 @@ public:
 
 private:
     int dataSock = -1;
+    int epollfd = -1;
     sockaddr_in server{};
-    std::map<Structures> clients;
+    std::unordered_map<std::string, Monitoring> serverInfo;
+    std::vector<struct epoll_event> events(MAX_EVENTS);
 };

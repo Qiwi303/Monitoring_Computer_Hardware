@@ -22,8 +22,11 @@ private:
     std::shared_ptr<ShmWrapper> point;
 //    int searchSock = -1;
     int dataSock = -1;
+    int clientSock = -1;
     int index = -1;
     sockaddr_in server{};
+    sockaddr_in clients{};    
+    
     //std::string serverIP = "255.255.255.255";
     //std::string serverName = "MONI";
 
