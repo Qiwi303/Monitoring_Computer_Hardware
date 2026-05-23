@@ -21,7 +21,9 @@ add_executable(ftxui-starter runMonitoring.cpp TuiPanel.cpp )
 
 add_executable(producer producer.cpp ParseStat/Parser.cpp ParseStat/Cpu.cpp ParseStat/Ram.cpp DataCollector.cpp)
 
+add_executable(server runServer.cpp Server.cpp)
 add_executable(client runClient.cpp Client.cpp)
+
 
 target_include_directories(ftxui-starter PRIVATE src)
 

@@ -1,26 +1,33 @@
-#pragma once 
+#pragma once
 
-#include <vector>
+#include <sys/time.h>
 #include <sys/socket.h>
-#include <arpa/inte.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
 #include <unistd.h>
-#include "Structures.h"
-#include <map>
-#include <thread>
-#include <sys/epoll.h>
+//#include <except>
+#include "ShmWrapper.h"
+#include <iostream>
+#include <cerrno>
 
-#define MAX_EVENTS 10
 
-Class Server{
+class Server{
 public:
-    Server(){}
+    Server();
+//    void findServer();
+    void run();    
     ~Server();
-    void run();
 
 private:
+    std::shared_ptr<ShmWrapper> point;
+//    int searchSock = -1;
     int dataSock = -1;
-    int epollfd = -1;
+    int clientSock = -1;
+    int index = -1;
     sockaddr_in server{};
-    std::unordered_map<std::string, Monitoring> serverInfo;
-    std::vector<struct epoll_event> events(MAX_EVENTS);
+    sockaddr_in clients{};    
+    
+    //std::string serverIP = "255.255.255.255";
+    //std::string serverName = "MONI";
+
 };

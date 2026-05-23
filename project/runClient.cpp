@@ -2,7 +2,11 @@
 
 int main(){
     try{
+        std::string ip;
+        std::cin>>ip;  
+        
         Client cl;
+        cl.addServer(ip);  
         cl.run();
     }
     catch(const std::runtime_error& e){

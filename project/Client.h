@@ -1,33 +1,31 @@
-#pragma once
+#pragma once 
 
-#include <sys/time.h>
+#include <vector>
 #include <sys/socket.h>
-#include <netinet/in.h>
 #include <arpa/inet.h>
 #include <unistd.h>
-//#include <except>
-#include "ShmWrapper.h"
-#include <iostream>
-#include <cerrno>
-
+#include "Structures.h"
+#include <unordered_map>
+#include <thread>
+#include <sys/epoll.h>
+#include <iostream> 
+#include <fcntl.h>
+#include <string.h>
 
 class Client{
 public:
     Client();
-//    void findServer();
-    void run();    
     ~Client();
+    void run();
+    void addServer(std::string& ip);
 
 private:
-    std::shared_ptr<ShmWrapper> point;
-//    int searchSock = -1;
     int dataSock = -1;
-    int clientSock = -1;
-    int index = -1;
+    int epollfd = -1;
     sockaddr_in server{};
-    sockaddr_in clients{};    
-    
-    //std::string serverIP = "255.255.255.255";
-    //std::string serverName = "MONI";
-
+    std::unordered_map<int, std::string> sysMap;
+    std::unordered_map<std::string, Monitoring> serverInfo;
+    std::unordered_map<int, std::vector<char>> serverBuf;
+    std::vector<struct epoll_event> events;
+    int monSize = sizeof(Monitoring);
 };

@@ -1,138 +1,54 @@
-#include "Server.h" 
+#include "Server.h"
 
-Server::Server(){
-        epollfd = epoll(0);
-        if(epollfd < 0){
-            throw std::runtime_error("Failed to create epollfd");
-        }
+Server::Server(): point(std::make_shared<ShmWrapper>(false)){    
+    dataSock = socket(AF_INET, SOCK_STREAM, 0);
+    if(dataSock == -1){
+        throw std::runtime_error("Failed to create socket");
+    }
+    
+    server.sin_family = AF_INET;
+    server.sin_port = htons(Network::PORT);
+    server.sin_addr.s_addr = htonl(INADDR_ANY);
+      
+    int binded = bind(dataSock, (struct sockaddr*)& server, sizeof(server));
+    if(binded < 0){
+        throw std::runtime_error("Failed to bind");
+    } 
 }
 
 
 void Server::run(){
+    int clientsInQ = 1;    
+
+    int listened = listen(dataSock, clientsInQ);
+    if(listened < 0){
+        throw std::runtime_error("Failed to listend");
+    }
+      
+
     while(true){
-        int error = 0;
-        socklen_t len = sizeof(error);   
+        socklen_t len = sizeof(clients);
+        clientSock = accept(dataSock, (struct sockaddr*)& clients, &len);
+        if(clientSock < 0){
+            throw std::runtime_error("Failed to accept clients");
+        }
         
-        int evCount = epoll_wait(epollfd, events, MAX_EVENTS, -1);
-        if(evCount < 0){
-            throw std::runtime_error("Failed epoll_wait");
+        int sended = 1;
+        while(sended > 0){
+            sended = send(clientSock, point->getPtr(), sizeof(Monitoring), 0);
+            sleep(2); 
         }
-
-        for(int i = 0; i < evCount; ++i){
-            int sock = events[i].data.fd;
-            if (events[i].evemts & (EPOLLERR | EPOLLHUP)) {
-                serversInfo.erase(sysMap[sock]);
-                sysMap.erase(sock);
-                close(sock);
-            }
-
-            if(events[i].events & EPOLLOUT){
-                
-                int res = getsockopt(sock, SOL_SOCKET, SO_ERROR, &error, &len);
-                if(res < 0){
-                    std::cerr<<"Failed getsockopt"<<std::endl;
-                    close(sock);
-                    continue;
-                }
-
-                else if(error != 0){
-                    error = 0;
-                    std::cerr<<"Connection was failed"<<std::endl;
-                    close(sock);
-                    continue;
-                }
-                
-                else{
-                    //connected
-                    serversInfo[sysMap[sock]] = Monitoring{};
-                    
-                    struct epoll_event ev{};
-                    ev.events = EPOLLIN;           
-                    ev.data.fd = sock;
-                    
-                    res = epoll_ctl(epollfd, EPOLL_CTL_MOD, sock, &ev);
-                    if(res < 0){
-                        std::cerr<<"Failed to change epoll mod "<<sysMap[sock]<<std::endl;
-                        sysMap.erase(sock);
-                        close(sock);
-                    }   
-                }
-                
-            }
-
-            else if(events[i].events & EPOLLIN){
-                Monitoring tmp;
-                int res = recv(sock, &tmp, sizeof(Monitoring), 0);
-                if(res > 0){
-                    serversInfo[sysMap[sock]] = tmp;
-                } 
-                else if(res == 0 || (res < 0 && errno != EAGAIN && errno != EWOULDBLOCK)){
-                    std::cerr<<"Server "<<sysMap[sock]<<" disconnected"<<std::endl;
-                    serversInfo.remove(sysMap[sock]);
-                    sysMap.erase(sock);
-                    close(sock);
-                }
-            }
-        }
-
     }
 }
-
-void Server::addServer(const std::string& ip){
-    int sock = socket(AF_INET, SOCK_STREAM, 0);
-    if(sock < 0){
-        std::cerr<<"Failed to create a socket for server "<<ip<<std::endl;
-        return;
-    }    
-    int flags = fcntl(sock, F_GETFL, 0);    
-    if(flags < 0){
-        std::cerr<<"Failed to get flags"<<ip<<std::endl;
-        close(sock);
-        return;
-    }
-
-    flags |= O_NONBLOCK;
-    int fcntlRes = fcntl(sock, F_SETFL, flags);
-    if(fcntlRes < 0){
-        std::cerr<<"Failed to set O_NONBLOCK "<<ip<<std::endl;
-        close(sock);
-        return;
-    }
-
-    struct sockaddr_in server{};
-    
-    server.sin_family = AF_INET;
-    server.sin_port = htons(Network::PORT);
-    inet_pton(AF_INET, ip.c_str(), &(server.sin_addr));
-    
-    int connected = connect(sock, (struct sockaddr*)& server, sizeof(server));
-    if(connected < 0 && errno != EINPROGRESS){
-      std::cerr<<"Failed to connect server "<<ip<<std::endl;
-      close(sock);
-      return;
-    }
-
-    struct epoll_event ev;    
-    
-    ev.events = EPOLLOUT;
-    ev.data.fd = sock;
-    int res = epoll_ctl(epollfd, EPOLL_CTL_ADD, sock, &ev);
-    if(res < 0){
-        std::cerr<<"Failed to add sock to epoll "<<ip<<std::endl;
-        close(sock);
-        return;
-    }   
-         
-    sysMap[sock] = ip;
-} 
 
 Server::~Server(){
-    for(auto& [sock, ip] :map){
-        close(sock);
-    } 
-    close(epollfd);
+    if(dataSock != -1){
+        close(dataSock);
+    }
+    if(clientSock != -1){
+        close(clientSock);
+    }
 }
-
 
 
 
