@@ -11,16 +11,18 @@
 #include <iostream> 
 #include <fcntl.h>
 #include <string.h>
+#include <mutex>
 
 class Client{
 public:
     Client();
     ~Client();
     void run();
-    void addServer(std::string& ip);
-    bool isServerAccessible(std::string& ip);
-    Monitoring* getLink(std::string& ip);
+    void addServer(const std::string& ip);
+    bool isServerAccessible(const std::string& ip);
+    Monitoring* getLink(const std::string& ip);
 private:
+    std::mutex mtx;
     int dataSock = -1;
     int epollfd = -1;
     sockaddr_in server{};

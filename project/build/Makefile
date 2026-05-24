@@ -427,30 +427,6 @@ Server.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/Server.cpp.s
 .PHONY : Server.cpp.s
 
-TuiPanel.o: TuiPanel.cpp.o
-.PHONY : TuiPanel.o
-
-# target to build an object file
-TuiPanel.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/TuiPanel.cpp.o
-.PHONY : TuiPanel.cpp.o
-
-TuiPanel.i: TuiPanel.cpp.i
-.PHONY : TuiPanel.i
-
-# target to preprocess a source file
-TuiPanel.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/TuiPanel.cpp.i
-.PHONY : TuiPanel.cpp.i
-
-TuiPanel.s: TuiPanel.cpp.s
-.PHONY : TuiPanel.s
-
-# target to generate assembly for a file
-TuiPanel.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/TuiPanel.cpp.s
-.PHONY : TuiPanel.cpp.s
-
 producer.o: producer.cpp.o
 .PHONY : producer.o
 
@@ -564,9 +540,6 @@ help:
 	@echo "... Server.o"
 	@echo "... Server.i"
 	@echo "... Server.s"
-	@echo "... TuiPanel.o"
-	@echo "... TuiPanel.i"
-	@echo "... TuiPanel.s"
 	@echo "... producer.o"
 	@echo "... producer.i"
 	@echo "... producer.s"

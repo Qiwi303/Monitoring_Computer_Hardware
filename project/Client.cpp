@@ -8,11 +8,13 @@ Client::Client(){
         }
 }
 
-bool Client::isServerAccessible(std::string& ip){
+bool Client::isServerAccessible(const std::string& ip){
+    std::lock_guard<std::mutex> lock(mtx);
     return serverInfo.find(ip) != serverInfo.end();
 }
 
-Monitoring* Client::getLink(std::string& ip){
+Monitoring* Client::getLink(const std::string& ip){
+    std::lock_guard<std::mutex> lock(mtx);
     return &serverInfo[ip];
 }
 
@@ -29,6 +31,7 @@ void Client::run(){
         for(int i = 0; i < evCount; ++i){
             int sock = events[i].data.fd;
             if (events[i].events & (EPOLLERR | EPOLLHUP)) {
+                std::lock_guard<std::mutex> lock(mtx);
                 serverInfo.erase(sysMap[sock]);
                 sysMap.erase(sock);
                 close(sock);
@@ -60,6 +63,7 @@ void Client::run(){
                     
                     res = epoll_ctl(epollfd, EPOLL_CTL_MOD, sock, &ev);
                     if(res < 0){
+                        std::lock_guard<std::mutex> lock(mtx);
                         std::cerr<<"Failed to change epoll mod "<<sysMap[sock]<<std::endl;
                         sysMap.erase(sock);
                         close(sock);
@@ -68,7 +72,7 @@ void Client::run(){
                 
             }
             else if(events[i].events & EPOLLIN){
-
+                std::lock_guard<std::mutex> lock(mtx);
 
                 auto& buf = serverBuf[sock];
                 buf.resize(buf.size() + monSize);
@@ -76,7 +80,7 @@ void Client::run(){
                 buf.resize(buf.size() - monSize + res);           
     
                 if(res > 0){
-
+                    
                     
                     while(buf.size() >= monSize){
                         Monitoring tmp;
@@ -88,6 +92,8 @@ void Client::run(){
                 }
  
                 else if(res == 0 || (res < 0 && errno != EAGAIN && errno != EWOULDBLOCK)){
+                    std::lock_guard<std::mutex> lock(mtx);
+
                     std::cerr<<"Server "<<sysMap[sock]<<" disconnected"<<std::endl;
                     serverInfo.erase(sysMap[sock]);
                     sysMap.erase(sock);
@@ -100,7 +106,7 @@ void Client::run(){
     }
 }
 
-void Client::addServer(std::string& ip){
+void Client::addServer(const std::string& ip){
     int sock = socket(AF_INET, SOCK_STREAM, 0);
     if(sock < 0){
         std::cerr<<"Failed to create a socket for server "<<ip<<std::endl;
@@ -144,7 +150,8 @@ void Client::addServer(std::string& ip){
         close(sock);
         return;
     }   
-         
+
+    std::lock_guard<std::mutex> lock(mtx);
     sysMap[sock] = ip;
 } 
 

@@ -2,7 +2,20 @@
 
 ClientTui::ClientTui(): clientThread(&Client::run, &cl), 
                         screen(ScreenInteractive::Fullscreen()){
-    buttons = Container::Vertical({});
+    
+    //components.push_back(std::make_shared<TuiMain>());
+    components.push_back(std::make_shared<TuiCpu>());    
+    components.push_back(std::make_shared<TuiRam>());
+    
+    
+    serverButtons = Container::Horizontal({
+            //Button("main", [this] {block = TuiBlock::main;}),
+            Button("cpu", [this] {block = TuiBlock::cpu;}),
+            Button("ram", [this] {block = TuiBlock::ram;}),
+    });
+
+
+    clientButtons = Container::Vertical({});
         
     ftxui::InputOption option;
     option.on_enter = [this] {
@@ -27,32 +40,39 @@ void ClientTui::refreshScreen(){
 }
 
 void ClientTui::addServer(std::string& ip){
-    cl.addServer(ip);    
-    auto newButton = Button(ip, [this, &ip]{
-        if(cl.isServerAccessible(ip)){
-            auto link = cl.getLink(ip);
-            tp.changeLink(link);
-        }
-    });
-    buttons->Add(newButton); 
+    std::string currIP = ip;
+    cl.addServer(currIP);
+  
+   auto newButton = Button(currIP, [this, currIP]{
+        std::thread([this, currIP]{
+            if(cl.isServerAccessible(currIP)){
+                link = cl.getLink(currIP);
+                components[0]->changeLink((void*)&(link->cpu));
+                components[1]->changeLink((void*)&(link->ram));
+            }
+            screen.PostEvent(Event::Custom);
+        }).detach();
+    });     
+  
+    clientButtons->Add(newButton); 
 }
 
-void ClientTui::runTui(){
-    auto servButtons = tp.getButtons();
-    auto clientPart = ftxui::Container::Vertical({inputField, buttons});    
-    auto tui = ftxui::Container::Horizontal({clientPart, servButtons});    
+void ClientTui::runTui(){ 
+    auto clientPart = ftxui::Container::Vertical({inputField, clientButtons});    
+    auto tui = ftxui::Container::Horizontal({clientPart, serverButtons});    
 
-    auto mainComponent = Renderer(tui, [this, clientPart, servButtons]{
-        ftxui::Element box = tp.serverPanel();
-        
+    auto mainComponent = Renderer(tui, [this, clientPart]{
+        int index = static_cast<int>(block);
+        if(link != nullptr) serverBox = components[index]->getBox();  
+
         return hbox({
                     vbox({
                         clientPart->Render()
                     }) | border,
                     
                     vbox({
-                        servButtons->Render() | border, 
-                        box | border
+                        serverButtons->Render() | border, 
+                        serverBox | border
                     }) | border,
         });
     });
@@ -65,4 +85,4 @@ void ClientTui::runTui(){
     refresh.join();
 }
 
-
+ 

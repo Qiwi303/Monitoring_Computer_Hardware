@@ -3,8 +3,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/client.dir/Client.cpp.o.d"
   "CMakeFiles/client.dir/ClientTui.cpp.o"
   "CMakeFiles/client.dir/ClientTui.cpp.o.d"
-  "CMakeFiles/client.dir/TuiPanel.cpp.o"
-  "CMakeFiles/client.dir/TuiPanel.cpp.o.d"
   "CMakeFiles/client.dir/runClient.cpp.o"
   "CMakeFiles/client.dir/runClient.cpp.o.d"
   "client"
