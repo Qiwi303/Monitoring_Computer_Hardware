@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/client.dir/runClient.cpp.o CMakeFiles/client.dir/Client.cpp.o -o client 
+/usr/bin/c++ CMakeFiles/client.dir/runClient.cpp.o CMakeFiles/client.dir/Client.cpp.o CMakeFiles/client.dir/TuiPanel.cpp.o CMakeFiles/client.dir/ClientTui.cpp.o -o client  _deps/ftxui-build/libftxui-screen.a _deps/ftxui-build/libftxui-dom.a _deps/ftxui-build/libftxui-component.a _deps/ftxui-build/libftxui-dom.a _deps/ftxui-build/libftxui-screen.a 

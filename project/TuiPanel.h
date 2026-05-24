@@ -16,17 +16,14 @@
 #include "ftxui/screen/color.hpp"
 
 
-#include <thread>
-#include <chrono>
 
-#include "ShmWrapper.h"
 
 #include "TuiParts/TuiComp.h"
 #include "TuiParts/TuiMain.h"
 #include "TuiParts/TuiCpu.h"
 #include "TuiParts/TuiRam.h"
 
-
+#include "Client.h"
 
 
 enum class TuiBlock{
@@ -40,16 +37,14 @@ class TuiPanel{
 public:
     TuiPanel();
     ~TuiPanel() = default;
+    ftxui::Element serverPanel();
+    void changeLink(Monitoring* ptr);
+    ftxui::Component getButtons();    
 
-    void refreshScreen();
-    void runTui();
-
-private:
-    std::shared_ptr<ShmWrapper> point; 
-    ftxui::ScreenInteractive screen;
+private: 
     
     TuiBlock block = TuiBlock::main; 
     ftxui::Component buttons;
     std::vector<std::shared_ptr<TuiComp>> components;
-    std::atomic<bool> running{true};    
+    Monitoring* link = nullptr;
 };

@@ -8,6 +8,13 @@ Client::Client(){
         }
 }
 
+bool Client::isServerAccessible(std::string& ip){
+    return serverInfo.find(ip) != serverInfo.end();
+}
+
+Monitoring* Client::getLink(std::string& ip){
+    return &serverInfo[ip];
+}
 
 void Client::run(){
     while(true){
@@ -87,7 +94,7 @@ void Client::run(){
                     close(sock);
                 }
     
-                std::cout<<(serverInfo[sysMap[sock]]).cpu.usageHistory[59]<<std::endl;
+                //std::cout<<(serverInfo[sysMap[sock]]).cpu.usageHistory[59]<<std::endl;
             }
         }
     }

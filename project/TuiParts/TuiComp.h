@@ -17,5 +17,6 @@ using namespace ftxui;
 class TuiComp{
 public:
     virtual ftxui::Element getBox() = 0;
+    virtual void changeLink(void* link) = 0;
     virtual ~TuiComp() = default;
 };

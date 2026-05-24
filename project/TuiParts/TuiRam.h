@@ -6,8 +6,16 @@ using namespace ftxui;
 
 class TuiRam: public TuiComp{
 public:
-    TuiRam(RamTrack* _data): data(_data){}
+    TuiRam(){}
     
+    void changeLink(void* link) override{
+        if(link == nullptr){
+            std::cerr<<"invalid link"<<std::endl;
+        }
+        else data = (RamTrack*)link;
+    }
+ 
+   
     ftxui::Element getGraph(){
         int height = 18;
         int width = 50;

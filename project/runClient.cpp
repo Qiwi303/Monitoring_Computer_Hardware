@@ -1,13 +1,9 @@
-#include "Client.h"
+#include "ClientTui.h"
 
 int main(){
-    try{
-        std::string ip;
-        std::cin>>ip;  
-        
-        Client cl;
-        cl.addServer(ip);  
-        cl.run();
+    try{ 
+        ClientTui cl;  
+        cl.runTui();
     }
     catch(const std::runtime_error& e){
         std::cerr<<"Exception: "<<e.what()<<std::endl;

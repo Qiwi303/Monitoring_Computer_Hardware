@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/home/Ars/Desktop/Monitoring_Computer_Hardware/project/src -isystem /home/Ars/Desktop/Monitoring_Computer_Hardware/project/build/_deps/ftxui-src/include
 
 CXX_FLAGS = -std=gnu++17
 

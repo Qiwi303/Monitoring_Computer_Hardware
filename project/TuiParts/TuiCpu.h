@@ -4,8 +4,15 @@
 
 class TuiCpu: public TuiComp{
 public:
-    TuiCpu(CpuTrack* _data): data(_data){}
+    TuiCpu(){}
     
+    void changeLink(void* link) override{
+        if(link == nullptr){
+            std::cerr<<"invalid link"<<std::endl;
+        }
+        else data = (CpuTrack*)link;
+    }
+
     ftxui::Element getGraph(){
         return graph([&](int width, int height) {
             std::vector<int> out;
@@ -49,5 +56,5 @@ public:
     }
 
 private:
-    CpuTrack* data;
+    CpuTrack* data = nullptr;
 };

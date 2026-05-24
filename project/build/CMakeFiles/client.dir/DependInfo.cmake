@@ -9,6 +9,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/Ars/Desktop/Monitoring_Computer_Hardware/project/Client.cpp" "CMakeFiles/client.dir/Client.cpp.o" "gcc" "CMakeFiles/client.dir/Client.cpp.o.d"
+  "/home/Ars/Desktop/Monitoring_Computer_Hardware/project/ClientTui.cpp" "CMakeFiles/client.dir/ClientTui.cpp.o" "gcc" "CMakeFiles/client.dir/ClientTui.cpp.o.d"
+  "/home/Ars/Desktop/Monitoring_Computer_Hardware/project/TuiPanel.cpp" "CMakeFiles/client.dir/TuiPanel.cpp.o" "gcc" "CMakeFiles/client.dir/TuiPanel.cpp.o.d"
   "/home/Ars/Desktop/Monitoring_Computer_Hardware/project/runClient.cpp" "CMakeFiles/client.dir/runClient.cpp.o" "gcc" "CMakeFiles/client.dir/runClient.cpp.o.d"
   )
 

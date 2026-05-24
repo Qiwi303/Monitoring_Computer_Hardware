@@ -18,7 +18,8 @@ public:
     ~Client();
     void run();
     void addServer(std::string& ip);
-
+    bool isServerAccessible(std::string& ip);
+    Monitoring* getLink(std::string& ip);
 private:
     int dataSock = -1;
     int epollfd = -1;

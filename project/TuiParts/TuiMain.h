@@ -9,5 +9,6 @@ public:
             text("main") | border 
         });
     }
+    void changeLink(void* link) override{}
 private:
 };

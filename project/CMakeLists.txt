@@ -17,17 +17,17 @@ FetchContent_Declare(ftxui
 
 FetchContent_MakeAvailable(ftxui)
 
-add_executable(ftxui-starter runMonitoring.cpp TuiPanel.cpp )
+#add_executable(ftxui-starter runMonitoring.cpp TuiPanel.cpp )
 
 add_executable(producer producer.cpp ParseStat/Parser.cpp ParseStat/Cpu.cpp ParseStat/Ram.cpp DataCollector.cpp)
 
 add_executable(server runServer.cpp Server.cpp)
-add_executable(client runClient.cpp Client.cpp)
+add_executable(client runClient.cpp Client.cpp TuiPanel.cpp ClientTui.cpp)
 
 
-target_include_directories(ftxui-starter PRIVATE src)
+target_include_directories(client PRIVATE src)
 
-target_link_libraries(ftxui-starter
+target_link_libraries(client
   PRIVATE ftxui::screen
   PRIVATE ftxui::dom
   PRIVATE ftxui::component

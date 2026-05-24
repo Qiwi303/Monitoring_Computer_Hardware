@@ -1,6 +1,7 @@
-CMakeFiles/ftxui-starter.dir/runMonitoring.cpp.o: \
- /home/Ars/Desktop/Monitoring_Computer_Hardware/project/runMonitoring.cpp \
+CMakeFiles/client.dir/ClientTui.cpp.o: \
+ /home/Ars/Desktop/Monitoring_Computer_Hardware/project/ClientTui.cpp \
  /usr/include/stdc-predef.h \
+ /home/Ars/Desktop/Monitoring_Computer_Hardware/project/ClientTui.h \
  /home/Ars/Desktop/Monitoring_Computer_Hardware/project/TuiPanel.h \
  /usr/include/unistd.h /usr/include/features.h \
  /usr/include/features-time64.h \

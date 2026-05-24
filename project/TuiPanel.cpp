@@ -1,48 +1,33 @@
 #include "TuiPanel.h"
 
-TuiPanel::TuiPanel(): screen(ScreenInteractive::Fullscreen()),
-    point(std::make_shared<ShmWrapper>(false)){
-            
+TuiPanel::TuiPanel(){    
+       
     components.push_back(std::make_shared<TuiMain>());
-    components.push_back(std::make_shared<TuiCpu>(&(point->getPtr()->cpu)));    
-    components.push_back(std::make_shared<TuiRam>(&(point->getPtr()->ram)));
+    components.push_back(std::make_shared<TuiCpu>());    
+    components.push_back(std::make_shared<TuiRam>());
     
-    auto exitTui = screen.ExitLoopClosure(); 
     
     buttons = Container::Horizontal({
             Button("main", [this] {block = TuiBlock::main;}),
             Button("cpu", [this] {block = TuiBlock::cpu;}),
             Button("ram", [this] {block = TuiBlock::ram;}),
-            Button("quit", [exitTui] {exitTui();})
     });
     
         
 }
 
-void TuiPanel::refreshScreen(){
-    while (running) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
-        screen.PostEvent(Event::Custom);
-    }
-}
+ftxui::Component TuiPanel::getButtons(){ return buttons ;}
 
-void TuiPanel::runTui(){
-    auto mainComponent = Renderer(buttons, [this]{
+ftxui::Element TuiPanel::serverPanel(){
         int index = static_cast<int>(block);
-        ftxui::Element box = components[index]->getBox();
-    
-        return vbox({
-                buttons->Render(),
-                box  
-        });
-    });
-        
-    std::thread refresh(&TuiPanel::refreshScreen, this);
-    
-    screen.Loop(mainComponent);
-    
-    running = false;
-    refresh.join();
+        return components[index]->getBox();  
 }
+
+void TuiPanel::changeLink(Monitoring* ptr){
+    link = ptr;
+    components[1]->changeLink((void*)&(link->cpu));
+    components[2]->changeLink((void*)&(link->ram));
+}
+
 
 //TuiPanel::~TuiPanel(){}; 

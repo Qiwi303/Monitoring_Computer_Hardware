@@ -182,19 +182,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ftxui-starter
-
-# Build rule for target.
-ftxui-starter: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ftxui-starter
-.PHONY : ftxui-starter
-
-# fast build rule for target.
-ftxui-starter/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/build
-.PHONY : ftxui-starter/fast
-
-#=============================================================================
 # Target rules for targets named producer
 
 # Build rule for target.
@@ -295,6 +282,30 @@ Client.s: Client.cpp.s
 Client.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/Client.cpp.s
 .PHONY : Client.cpp.s
+
+ClientTui.o: ClientTui.cpp.o
+.PHONY : ClientTui.o
+
+# target to build an object file
+ClientTui.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/ClientTui.cpp.o
+.PHONY : ClientTui.cpp.o
+
+ClientTui.i: ClientTui.cpp.i
+.PHONY : ClientTui.i
+
+# target to preprocess a source file
+ClientTui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/ClientTui.cpp.i
+.PHONY : ClientTui.cpp.i
+
+ClientTui.s: ClientTui.cpp.s
+.PHONY : ClientTui.s
+
+# target to generate assembly for a file
+ClientTui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/ClientTui.cpp.s
+.PHONY : ClientTui.cpp.s
 
 DataCollector.o: DataCollector.cpp.o
 .PHONY : DataCollector.o
@@ -421,7 +432,7 @@ TuiPanel.o: TuiPanel.cpp.o
 
 # target to build an object file
 TuiPanel.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/TuiPanel.cpp.o
 .PHONY : TuiPanel.cpp.o
 
 TuiPanel.i: TuiPanel.cpp.i
@@ -429,7 +440,7 @@ TuiPanel.i: TuiPanel.cpp.i
 
 # target to preprocess a source file
 TuiPanel.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/TuiPanel.cpp.i
 .PHONY : TuiPanel.cpp.i
 
 TuiPanel.s: TuiPanel.cpp.s
@@ -437,7 +448,7 @@ TuiPanel.s: TuiPanel.cpp.s
 
 # target to generate assembly for a file
 TuiPanel.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/TuiPanel.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/TuiPanel.cpp.s
 .PHONY : TuiPanel.cpp.s
 
 producer.o: producer.cpp.o
@@ -488,30 +499,6 @@ runClient.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/runClient.cpp.s
 .PHONY : runClient.cpp.s
 
-runMonitoring.o: runMonitoring.cpp.o
-.PHONY : runMonitoring.o
-
-# target to build an object file
-runMonitoring.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/runMonitoring.cpp.o
-.PHONY : runMonitoring.cpp.o
-
-runMonitoring.i: runMonitoring.cpp.i
-.PHONY : runMonitoring.i
-
-# target to preprocess a source file
-runMonitoring.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/runMonitoring.cpp.i
-.PHONY : runMonitoring.cpp.i
-
-runMonitoring.s: runMonitoring.cpp.s
-.PHONY : runMonitoring.s
-
-# target to generate assembly for a file
-runMonitoring.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ftxui-starter.dir/build.make CMakeFiles/ftxui-starter.dir/runMonitoring.cpp.s
-.PHONY : runMonitoring.cpp.s
-
 runServer.o: runServer.cpp.o
 .PHONY : runServer.o
 
@@ -553,13 +540,15 @@ help:
 	@echo "... client"
 	@echo "... component"
 	@echo "... dom"
-	@echo "... ftxui-starter"
 	@echo "... producer"
 	@echo "... screen"
 	@echo "... server"
 	@echo "... Client.o"
 	@echo "... Client.i"
 	@echo "... Client.s"
+	@echo "... ClientTui.o"
+	@echo "... ClientTui.i"
+	@echo "... ClientTui.s"
 	@echo "... DataCollector.o"
 	@echo "... DataCollector.i"
 	@echo "... DataCollector.s"
@@ -584,9 +573,6 @@ help:
 	@echo "... runClient.o"
 	@echo "... runClient.i"
 	@echo "... runClient.s"
-	@echo "... runMonitoring.o"
-	@echo "... runMonitoring.i"
-	@echo "... runMonitoring.s"
 	@echo "... runServer.o"
 	@echo "... runServer.i"
 	@echo "... runServer.s"
