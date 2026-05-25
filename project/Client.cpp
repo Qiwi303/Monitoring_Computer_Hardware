@@ -8,6 +8,29 @@ Client::Client(){
         }
 }
 
+
+void Client::removeServer(const std::string& ip){
+    std::lock_guard<std::mutex> lock(mtx);
+    int sock = -1;
+    for(auto& [key, val]: sysMap){
+        if(val == ip){
+            sock = key;
+            break;
+        }
+        
+    }
+    if(sock != -1){
+        epoll_ctl(epollfd, EPOLL_CTL_DEL, sock, nullptr);
+        serverInfo.erase(sysMap[sock]);
+        sysMap.erase(sock);
+        serverBuf.erase(sock);
+        close(sock);
+    }
+    else{
+        std::cerr<<"server is not found"<<std::endl;
+    }
+}
+
 void Client::stopRunning(){ running = false;}
 
 bool Client::isServerAccessible(const std::string& ip){

@@ -44,7 +44,7 @@ void ClientTui::refreshScreen(){
     }
 }
 
-void ClientTui::addServer(std::string& ip){
+/*void ClientTui::addServer(std::string& ip){
     std::string currIP = ip;
     cl.addServer(currIP);
   
@@ -60,7 +60,33 @@ void ClientTui::addServer(std::string& ip){
     });     
   
     clientButtons->Add(newButton); 
+}*/
+
+void ClientTui::addServer(std::string& ip){
+    std::string currIP = ip;
+    cl.addServer(currIP);
+
+    auto ipButton = Button(currIP, [this, currIP]{
+        std::thread([this, currIP]{
+            if(cl.isServerAccessible(currIP)){
+                link = cl.getLink(currIP);
+                components[0]->changeLink((void*)&(link->cpu));
+                components[1]->changeLink((void*)&(link->ram));
+            }
+            screen.PostEvent(Event::Custom);
+        }).detach();
+    });
+
+    auto delButton = Button("x", [this, currIP]{
+        cl.removeServer(currIP);
+        link = nullptr;
+        screen.PostEvent(Event::Custom);
+    });
+
+    auto row = Container::Horizontal({ipButton, delButton});
+    clientButtons->Add(row);
 }
+
 
 void ClientTui::runTui(){ 
     auto clientPart = ftxui::Container::Vertical({inputField, clientButtons});    

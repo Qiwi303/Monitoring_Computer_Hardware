@@ -23,6 +23,9 @@ public:
     bool isServerAccessible(const std::string& ip);
     Monitoring* getLink(const std::string& ip);
     void stopRunning();
+
+    void removeServer(const std::string& ip);
+
 private:
     std::mutex mtx;
     int dataSock = -1;
