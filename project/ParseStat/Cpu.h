@@ -12,6 +12,7 @@
 #include <cpuid.h>
 #include <cstdint>
 #include <thread>
+#include <charconv>
 
 class Cpu{
 public:

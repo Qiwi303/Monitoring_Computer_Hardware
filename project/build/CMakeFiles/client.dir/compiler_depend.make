@@ -12,10 +12,13 @@ CMakeFiles/client.dir/Client.cpp.o: /home/Ars/Desktop/Monitoring_Computer_Hardwa
   /usr/include/asm-generic/posix_types.h \
   /usr/include/asm-generic/socket.h \
   /usr/include/asm-generic/sockios.h \
+  /usr/include/c++/13/atomic \
   /usr/include/c++/13/backward/binders.h \
   /usr/include/c++/13/bit \
   /usr/include/c++/13/bits/alloc_traits.h \
   /usr/include/c++/13/bits/allocator.h \
+  /usr/include/c++/13/bits/atomic_base.h \
+  /usr/include/c++/13/bits/atomic_lockfree_defines.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -981,13 +984,7 @@ CMakeFiles/client.dir/runClient.cpp.o: /home/Ars/Desktop/Monitoring_Computer_Har
 
 /usr/include/c++/13/bits/deque.tcc:
 
-/usr/include/c++/13/bits/atomic_lockfree_defines.h:
-
-/usr/include/c++/13/bits/atomic_base.h:
-
 /usr/include/c++/13/bits/align.h:
-
-/usr/include/c++/13/atomic:
 
 /usr/include/c++/13/algorithm:
 
@@ -1035,7 +1032,9 @@ _deps/ftxui-src/include/ftxui/component/component_base.hpp:
 
 /home/Ars/Desktop/Monitoring_Computer_Hardware/project/TuiParts/TuiRam.h:
 
-/usr/include/c++/13/bits/streambuf.tcc:
+_deps/ftxui-src/include/ftxui/screen/deprecated.hpp:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h:
 
 /usr/include/c++/13/typeinfo:
 
@@ -1115,6 +1114,8 @@ _deps/ftxui-src/include/ftxui/component/component_base.hpp:
 
 /usr/include/arpa/inet.h:
 
+/usr/include/c++/13/bits/atomic_base.h:
+
 /usr/include/c++/13/bits/algorithmfwd.h:
 
 /usr/include/x86_64-linux-gnu/bits/long-double.h:
@@ -1147,6 +1148,8 @@ _deps/ftxui-src/include/ftxui/component/task.hpp:
 
 /usr/include/wchar.h:
 
+/usr/include/c++/13/bits/streambuf.tcc:
+
 /usr/include/c++/13/bits/unordered_map.h:
 
 /usr/include/c++/13/bits/new_allocator.h:
@@ -1169,25 +1172,41 @@ _deps/ftxui-src/include/ftxui/component/task.hpp:
 
 /usr/include/c++/13/bits/std_thread.h:
 
-/usr/include/c++/13/vector:
+/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h:
+/usr/include/c++/13/bits/string_view.tcc:
+
+/usr/include/linux/stat.h:
+
+/usr/include/c++/13/bits/locale_facets.tcc:
+
+/usr/include/c++/13/bits/refwrap.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
+
+/usr/include/c++/13/bits/cxxabi_forced.h:
 
 /usr/include/c++/13/cstddef:
 
 /usr/include/c++/13/bits/erase_if.h:
 
-/usr/include/c++/13/bits/cxxabi_forced.h:
+/usr/include/c++/13/bits/atomic_lockfree_defines.h:
+
+/usr/include/x86_64-linux-gnu/asm/errno.h:
+
+_deps/ftxui-src/include/ftxui/screen/string.hpp:
+
+/usr/include/c++/13/ext/numeric_traits.h:
+
+/usr/include/c++/13/bits/stl_iterator.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
 /usr/include/c++/13/bits/locale_facets.h:
 
 /usr/include/x86_64-linux-gnu/bits/socket_type.h:
 
 /usr/include/c++/13/bits/localefwd.h:
-
-/usr/include/c++/13/bits/concept_check.h:
-
-/usr/include/c++/13/bits/alloc_traits.h:
 
 /usr/include/c++/13/istream:
 
@@ -1203,53 +1222,35 @@ _deps/ftxui-src/include/ftxui/component/task.hpp:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h:
 
-/usr/include/c++/13/bits/exception.h:
-
-/usr/include/c++/13/bits/memory_resource.h:
-
-/usr/include/c++/13/streambuf:
-
-/usr/include/c++/13/condition_variable:
-
-/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
-
-/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
-
-/usr/include/c++/13/bits/hashtable_policy.h:
-
-/usr/include/netinet/in.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
-
 /usr/include/c++/13/bits/basic_ios.h:
 
 /usr/include/x86_64-linux-gnu/bits/time64.h:
+
+/usr/include/c++/13/stdexcept:
+
+/usr/include/c++/13/bits/std_mutex.h:
+
+/usr/include/c++/13/bits/stl_construct.h:
+
+/usr/include/asm-generic/sockios.h:
+
+/usr/include/c++/13/bits/move.h:
 
 /usr/include/c++/13/bits/stringfwd.h:
 
 /usr/include/c++/13/backward/binders.h:
 
-/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
-
-/usr/include/c++/13/bits/string_view.tcc:
-
-/usr/include/linux/stat.h:
-
-/usr/include/c++/13/bits/locale_facets.tcc:
-
 /usr/include/c++/13/ext/alloc_traits.h:
 
 /usr/include/c++/13/new:
 
-/usr/include/c++/13/thread:
+/usr/include/c++/13/bits/alloc_traits.h:
 
-/usr/include/c++/13/iostream:
+/usr/include/c++/13/bits/concept_check.h:
 
-/usr/include/c++/13/ext/type_traits.h:
+/usr/include/asm-generic/posix_types.h:
 
-/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
-
-/usr/include/c++/13/bits/enable_special_members.h:
+/usr/include/stdc-predef.h:
 
 /usr/include/c++/13/type_traits:
 
@@ -1260,6 +1261,16 @@ _deps/ftxui-src/include/ftxui/component/task.hpp:
 /usr/include/c++/13/bit:
 
 /usr/include/c++/13/bits/basic_string.tcc:
+
+/usr/include/c++/13/bits/enable_special_members.h:
+
+/usr/include/c++/13/thread:
+
+/usr/include/c++/13/iostream:
+
+/usr/include/c++/13/ext/type_traits.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
 
 /usr/include/alloca.h:
 
@@ -1275,18 +1286,6 @@ _deps/ftxui-src/include/ftxui/component/task.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
 
-/usr/include/c++/13/bits/move.h:
-
-/usr/include/asm-generic/sockios.h:
-
-/usr/include/c++/13/bits/stl_construct.h:
-
-/usr/include/c++/13/bits/std_mutex.h:
-
-/usr/include/asm-generic/posix_types.h:
-
-/usr/include/stdc-predef.h:
-
 /usr/include/c++/13/iosfwd:
 
 /usr/include/c++/13/bits/predefined_ops.h:
@@ -1301,11 +1300,31 @@ _deps/ftxui-src/include/ftxui/component/component.hpp:
 
 /usr/include/c++/13/bits/exception_ptr.h:
 
+/usr/include/c++/13/bits/hashtable_policy.h:
+
+/usr/include/netinet/in.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
+
+/usr/include/c++/13/atomic:
+
 _deps/ftxui-src/include/ftxui/component/animation.hpp:
 
 /usr/include/c++/13/bits/chrono.h:
 
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
+
+/usr/include/c++/13/bits/exception.h:
+
+/usr/include/c++/13/bits/memory_resource.h:
+
+/usr/include/c++/13/streambuf:
+
+/usr/include/c++/13/condition_variable:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
+
+/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
 /usr/include/c++/13/bits/basic_ios.tcc:
 
@@ -1343,8 +1362,6 @@ _deps/ftxui-src/include/ftxui/screen/color.hpp:
 
 /usr/include/c++/13/bits/ostream.tcc:
 
-/usr/include/ctype.h:
-
 /usr/include/c++/13/bits/uniform_int_dist.h:
 
 /usr/include/c++/13/bits/locale_classes.tcc:
@@ -1371,11 +1388,11 @@ _deps/ftxui-src/include/ftxui/screen/color.hpp:
 
 /usr/include/c++/13/ios:
 
-/usr/include/c++/13/stdexcept:
+/usr/include/c++/13/vector:
 
-/usr/include/c++/13/bits/refwrap.h:
+/usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
+/usr/include/ctype.h:
 
 /usr/include/fcntl.h:
 
@@ -1394,6 +1411,10 @@ _deps/ftxui-src/include/ftxui/dom/node.hpp:
 /usr/include/c++/13/debug/debug.h:
 
 /usr/include/linux/errno.h:
+
+/home/Ars/Desktop/Monitoring_Computer_Hardware/project/ClientTui.cpp:
+
+/usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
 
 /usr/include/pthread.h:
 
@@ -1428,16 +1449,6 @@ _deps/ftxui-src/include/ftxui/component/screen_interactive.hpp:
 /usr/include/x86_64-linux-gnu/asm/socket.h:
 
 /usr/include/x86_64-linux-gnu/sys/select.h:
-
-/usr/include/x86_64-linux-gnu/asm/errno.h:
-
-_deps/ftxui-src/include/ftxui/screen/string.hpp:
-
-/usr/include/c++/13/ext/numeric_traits.h:
-
-/usr/include/c++/13/bits/stl_iterator.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
 /usr/include/c++/13/cwctype:
 
@@ -1496,10 +1507,6 @@ _deps/ftxui-src/include/ftxui/dom/elements.hpp:
 /usr/include/x86_64-linux-gnu/bits/sockaddr.h:
 
 /usr/include/x86_64-linux-gnu/bits/socket.h:
-
-/usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
-
-/home/Ars/Desktop/Monitoring_Computer_Hardware/project/ClientTui.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/stat.h:
 
@@ -1604,7 +1611,3 @@ _deps/ftxui-src/include/ftxui/dom/deprecated.hpp:
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h:
-
-_deps/ftxui-src/include/ftxui/screen/deprecated.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h:

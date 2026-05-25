@@ -7,11 +7,16 @@ ClientTui::ClientTui(): clientThread(&Client::run, &cl),
     components.push_back(std::make_shared<TuiCpu>());    
     components.push_back(std::make_shared<TuiRam>());
     
+    auto exitTui = screen.ExitLoopClosure();  
     
     serverButtons = Container::Horizontal({
             //Button("main", [this] {block = TuiBlock::main;}),
             Button("cpu", [this] {block = TuiBlock::cpu;}),
             Button("ram", [this] {block = TuiBlock::ram;}),
+            Button("quit", [this, exitTui] {
+                cl.stopRunning();
+                exitTui();
+            })
     });
 
 

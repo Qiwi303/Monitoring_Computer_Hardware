@@ -91,6 +91,34 @@ uint32_t* Cpu::getCache(){
     return cache;
 }
 
+/*uint32_t* Cpu::getCache(){
+    uint32_t eax, ebx, ecx, edx;
+    uint32_t coreCount = std::thread::hardware_concurrency();
+
+    for(uint32_t i = 0; ; i++){
+        __cpuid_count(0x4, i, eax, ebx, ecx, edx);
+        
+        uint32_t type  = eax & 0x1F;
+        if(type == 0) break;
+
+        uint32_t level = (eax >> 5) & 0x7;
+        uint32_t ways  = ((ebx >> 22) & 0x3FF) + 1;
+        uint32_t parts = ((ebx >> 12) & 0x3FF) + 1;
+        uint32_t line  = (ebx & 0xFFF) + 1;
+        uint32_t sets  = ecx + 1;
+        uint32_t size  = ways * parts * line * sets;
+
+        if(level == 1 && type == 1)
+            cache[0] = (size * coreCount) / 1024;
+        else if(level == 2)
+            cache[1] = (size * coreCount) / (1024 * 1024);
+        else if(level == 3)
+            cache[2] = size / (1024 * 1024);
+    }
+
+    return cache;
+}*/
+
 int Cpu::getFreq(){
 	int size = 256;
 	char buff[256];
@@ -102,7 +130,18 @@ int Cpu::getFreq(){
 	}
     
     int index = parser::findNthChr(buff, '.', size, 1);
-    index--; 
+    index--;
+    if(buff[index - 1] < '0' || buff[index - 1] > '9'){
+        float value;
+        auto [ptr, ec] = std::from_chars(buff + index, buff + index + 4, value);
+        if (ec != std::errc()) {
+            throw std::runtime_error("Failed to convert");
+        } 
+    
+        return value;
+    }
+
+ 
     int freq = parser::castToInt(buff, index, ' ');
     return freq;
-}         
+}       

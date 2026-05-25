@@ -13,7 +13,7 @@ public:
         else data = (CpuTrack*)link;
     }
 
-    ftxui::Element getGraph(){
+ /*   ftxui::Element getGraph(){
         return graph([&](int width, int height) {
             std::vector<int> out;
             for (int i = 0; i < width; i++) {
@@ -22,7 +22,31 @@ public:
             }
             return out;
         }) | color(Color::Green); 
+    }*/
+    
+ftxui::Element getGraph(){
+    if(data == nullptr) return ftxui::text("no data");
+    int height = 20;
+    int width = 50;
+    auto c = ftxui::Canvas(width, height);
+    int size = std::min(width - 1, 59);
+
+    for(int i = 0; i < size - 1; ++i){
+        float val1 = data->usageHistory[i] / 100.0f;
+        float val2 = data->usageHistory[i + 1] / 100.0f;
+
+        int y1 = height - 1 - std::max(1, static_cast<int>(val1 * (height - 2)));
+        int y2 = height - 1 - std::max(1, static_cast<int>(val2 * (height - 2)));
+
+        for(int y = y1; y < height; ++y)
+            c.DrawPoint(i, y, ftxui::Color::GreenLight);
+        c.DrawPointLine(i, y1, i + 1, y2, ftxui::Color::Green);
     }
+
+    c.DrawPointLine(0, height - 1, size - 1, height - 1, ftxui::Color::Green);
+
+    return ftxui::canvas(std::move(c));
+}
     
 
     ftxui::Element getText(){

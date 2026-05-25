@@ -8,6 +8,8 @@ Client::Client(){
         }
 }
 
+void Client::stopRunning(){ running = false;}
+
 bool Client::isServerAccessible(const std::string& ip){
     std::lock_guard<std::mutex> lock(mtx);
     return serverInfo.find(ip) != serverInfo.end();
@@ -19,12 +21,14 @@ Monitoring* Client::getLink(const std::string& ip){
 }
 
 void Client::run(){
-    while(true){
+    while(running){
         int error = 0;
         socklen_t len = sizeof(error);   
         
-        int evCount = epoll_wait(epollfd, events.data(), 10, -1);
+        int evCount = epoll_wait(epollfd, events.data(), 10, 500);
+
         if(evCount < 0){
+            if(errno == EINTR) continue;
             throw std::runtime_error("Failed epoll_wait");
         }
 

@@ -12,6 +12,7 @@
 #include <fcntl.h>
 #include <string.h>
 #include <mutex>
+#include <atomic>
 
 class Client{
 public:
@@ -21,6 +22,7 @@ public:
     void addServer(const std::string& ip);
     bool isServerAccessible(const std::string& ip);
     Monitoring* getLink(const std::string& ip);
+    void stopRunning();
 private:
     std::mutex mtx;
     int dataSock = -1;
@@ -31,4 +33,6 @@ private:
     std::unordered_map<int, std::vector<char>> serverBuf;
     std::vector<struct epoll_event> events;
     int monSize = sizeof(Monitoring);
+
+    std::atomic<bool> running = true;
 };

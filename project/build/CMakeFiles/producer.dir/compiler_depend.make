@@ -99,6 +99,7 @@ CMakeFiles/producer.dir/DataCollector.cpp.o: /home/Ars/Desktop/Monitoring_Comput
   /usr/include/c++/13/bits/vector.tcc \
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
+  /usr/include/c++/13/charconv \
   /usr/include/c++/13/chrono \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/csignal \
@@ -386,6 +387,7 @@ CMakeFiles/producer.dir/ParseStat/Cpu.cpp.o: /home/Ars/Desktop/Monitoring_Comput
   /usr/include/c++/13/bits/vector.tcc \
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
+  /usr/include/c++/13/charconv \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
@@ -879,6 +881,7 @@ CMakeFiles/producer.dir/producer.cpp.o: /home/Ars/Desktop/Monitoring_Computer_Ha
   /usr/include/c++/13/bits/vector.tcc \
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
+  /usr/include/c++/13/charconv \
   /usr/include/c++/13/chrono \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/csignal \
@@ -1160,6 +1163,8 @@ CMakeFiles/producer.dir/producer.cpp.o: /home/Ars/Desktop/Monitoring_Computer_Ha
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
 
+/usr/include/x86_64-linux-gnu/bits/types/stack_t.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
 
 /usr/include/c++/13/limits:
@@ -1317,6 +1322,8 @@ CMakeFiles/producer.dir/producer.cpp.o: /home/Ars/Desktop/Monitoring_Computer_Ha
 /usr/include/c++/13/bits/locale_facets.h:
 
 /usr/include/c++/13/bits/stringfwd.h:
+
+/usr/include/c++/13/charconv:
 
 /usr/include/c++/13/backward/binders.h:
 
@@ -1703,5 +1710,3 @@ CMakeFiles/producer.dir/producer.cpp.o: /home/Ars/Desktop/Monitoring_Computer_Ha
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/stack_t.h:

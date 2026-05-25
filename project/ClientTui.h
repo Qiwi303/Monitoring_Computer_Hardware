@@ -42,8 +42,9 @@ public:
     void addServer(std::string& ip);    
 
 private:
-    std::thread clientThread;
+   
     Client cl;
+    std::thread clientThread;
     
     ftxui::ScreenInteractive screen;    
 
